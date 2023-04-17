@@ -12,6 +12,7 @@
 - DELGADO Marcelo
 - DÍAZ, Yandira
 - GIMÉNEZ, Diego Fabián
+- GÓMEZ, Mariela
 - LÓPEZ, Erick
 - LORENTI, Valentino 
 
