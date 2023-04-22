@@ -19,8 +19,8 @@
 # Links de interés:
 <img width="36" height="36" alt="GitHub Logomark" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"><br/>
 
-Repositorio Proyecto Workflix 2022
+#Repositorio Proyecto Workflix 2022<br/>
 <a href="https://github.com/grupo-dw1-ispc/fullstack-project">https://github.com/grupo-dw1-ispc/fullstack-project</a>
 
-Web proyecto workflix 2022
+#Web proyecto workflix 2022<br/>
 https://workflix.com.ar
