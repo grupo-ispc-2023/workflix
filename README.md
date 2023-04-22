@@ -17,7 +17,7 @@
 - LORENTI, Valentino 
 
 # Links de interés:
-<a href="https://github.com/grupo-dw1-ispc/fullstack-project"><br/>Repositorio Proyecto Workflix 2022<img width="200" height="200" alt="GitHub Logomark" class="height-auto" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">https://github.com/grupo-dw1-ispc/fullstack-project</a>
+<a href="https://github.com/grupo-dw1-ispc/fullstack-project"><br/>Repositorio Proyecto Workflix 2022><img width="36" height="36" alt="GitHub Logomark" class="height-auto" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">https://github.com/grupo-dw1-ispc/fullstack-project</a>
 
 Web proyecto workflix 2022
 https://workflix.com.ar
