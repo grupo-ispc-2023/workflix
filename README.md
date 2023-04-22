@@ -1,27 +1,26 @@
-# Workflix
+<p align="center">
+ <a href="https://ibb.co/0tpbGxN"><img src="https://i.ibb.co/xHKT7Nv/logo-workflix.png" alt="logo-workflix" border="0" width="320" height="100"></a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+<p>WorkFlix es una plataforma donde puede encontrar profesionales  de confianza que brindan servicio de mantenimiento para resolver cualquier inconveniente que tenga en su casa u oficina. Póngase en contacto con el profesional que necesite y presupueste el trabajo. No compartimos su dirección ni teléfono con nadie. En WorkFlix ppodrá encontrar plomeros, gasistas, herreros, pintores, albañiles, jardineros y muchos otros oficios más. En nuestro menú podrá filtrar por categorías y seleccionar al profesional que necesite. Todos los profesionales están verificados y son permanentemente evaluados. Luego de realizado el trabajo usted puede calificar al profesional para que otros usuarios puedan tener referencias sobre el trato y la calidad del profesional contratado.</p>
 
-## Development server
+# Team Workflix 2023
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- ACUÑA, Natalin
+- CALIGIURI, Andrea
+- CEBALLOS, Elías Rey
+- DELGADO Marcelo
+- DÍAZ, Yandira
+- GIMÉNEZ, Diego Fabián
+- GÓMEZ, Mariela
+- LÓPEZ, Erick
+- LORENTI, Valentino 
 
-## Code scaffolding
+# Links de interés:
+<img width="36" height="36" alt="GitHub Logomark" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"><br/>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Repositorio Proyecto Workflix 2022<br/>
+<a href="https://github.com/grupo-dw1-ispc/fullstack-project">https://github.com/grupo-dw1-ispc/fullstack-project</a>
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Web proyecto workflix 2022<br/>
+https://workflix.com.ar
