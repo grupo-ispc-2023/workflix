@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegistroComponent } from './registro/registro.component';
+import { LoginComponent } from './login/login.component';
+import { ServiciosComponent } from './home/servicios/servicios.component';
 
 
 
@@ -12,7 +15,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponent,
     QuienesSomosComponent,
     ContactoComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegistroComponent,
+    LoginComponent,
+    ServiciosComponent
   ],
   exports:[
     HomeComponent,
