@@ -1,18 +1,35 @@
 
 <div class="center-form">
-    <form action="">
+    <form [formGroup]="forma" (ngSubmit)="guardar()">
       <div class="form">
         <h2 class="encabezado-2">Formulario Registro</h2>
 
         <div class="controls">
-          <input type="text" name="nombres" id="nombres" required />
+
+          <input 
+                 type="text"
+                 formControlName="nombre"
+                 [class.is-invalid] = "nombreNoValido"
+                 placeholder="Nombre">
+
+          <small *ngIf="nombreNoValido" class="text-danger">Ingrese su nombre mínimo 4 letras</small>
+
           <span class="barra"></span>
           <label>Nombre/s</label>
           <div class="no-valido text-danger d-none"></div>
         </div>
 
         <div class="controls">
-          <input type="text" name="apellidos" id="apellidos" required /><span
+
+          <input 
+                 type="text"
+                 formControlName="apellido"
+                 [class.is-invalid] = "apellidoNoValido"
+                 placeholder="Apellido">
+
+          <small *ngIf="apellidoNoValido" class="text-danger">Ingrese su apellido mínimo 3 letras</small>
+          
+          <span
             class="barra"
           ></span>
           <label>Apellido/s</label>
@@ -20,22 +37,47 @@
         </div>
 
         <div class="controls">
-          <input type="email" name="correo" id="correo" required />
+
+          <input 
+               type="email"
+               formControlName="correo"
+               [class.is-invalid] = "correoNoValido"
+               placeholder="Correo electrónico">
+
+          <small *ngIf="correoNoValido" class="text-danger">Ingrese un correo electrónico válido</small>
+               
           <span class="barra"></span>
           <label>Mail</label>
           <div class="no-valido text-danger d-none"></div>
         </div>
 
         <div class="controls">
-          <input type="password" name="pass1" id="pass1" required /><span
+          
+          <input 
+               formControlName="password1"
+               [class.is-invalid] = "password1NoValido"      
+               type="password">
+          
+        <small *ngIf="password1NoValido" class="text-danger">Ingrese un password con mínimo de 6 caracteres</small>
+          
+          <span
             class="barra"
           ></span>
+          
           <label>Contraseña</label>
           <div class="no-valido text-danger d-none"></div>
         </div>
 
         <div class="controls">
-          <input type="password" name="pass2" id="pass2" required /><span
+
+          <input 
+               formControlName="password2" 
+               [class.is-invalid] = "password2NoValido"  
+               type="password">
+          
+        <small *ngIf="password2NoValido" class="text-danger">Las contraseñas no coinciden</small>     
+
+          <span
             class="barra"
           ></span>
           <label>Confirme su Contraseña</label>
@@ -44,7 +86,19 @@
 
         <p class="parrafo">Estoy de acuerdo con <a href="#">Términos y Condiciones</a></p>
 
-        <button class="boton-form" type="button" onclick="return validarFormulario()">Regístrate</button>
+       
+
+        <div class="form-group row">
+          <label class="col-2 col-form-label">&nbsp;</label>
+          <div class="input-group col-md-8">
+            <button type="submit" class="boton-form">
+              Regístrate
+            </button>
+            <button type="button" class="boton-form" (click)="limpiar()">
+              Limpiar
+            </button>
+          </div>
+        </div>
 
      
           <p class="parrafo"><a href="formularioLogin.html">¿Ya tienes cuenta?</a></p>
@@ -52,3 +106,18 @@
       </div>
     </form>
   </div>
+
+
+  <hr>
+  <h3 class="mt-5"> Formulario </h3>
+  <pre>
+    Estaado de formulario:{{forma.valid}}
+    <br>
+    Status:{{forma.status}}
+  </pre>
+
+  <pre>
+    {{forma.value | json}}
+  </pre>
+
+  

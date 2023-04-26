@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,9 @@ import { ServiciosComponent } from './home/servicios/servicios.component';
     DashboardComponent,
     RegistroComponent,
     LoginComponent,
-    ServiciosComponent
+    ServiciosComponent,
+
+
   ],
   exports:[
     HomeComponent,
@@ -28,7 +31,11 @@ import { ServiciosComponent } from './home/servicios/servicios.component';
   ],
 
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    
+
+  
   ]
 })
 export class PagesModule {  }
