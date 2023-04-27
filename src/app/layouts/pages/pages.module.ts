@@ -8,6 +8,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfesionalesComponent } from './profesionales/profesionales.component';
 
 
 
@@ -20,7 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistroComponent,
     LoginComponent,
     ServiciosComponent,
-
+    ProfesionalesComponent
 
   ],
   exports:[
