@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
+import { ProfesionalesComponent } from './profesionales/profesionales.component';
 
 
 
@@ -18,13 +19,15 @@ import { ServiciosComponent } from './home/servicios/servicios.component';
     DashboardComponent,
     RegistroComponent,
     LoginComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    ProfesionalesComponent
   ],
   exports:[
     HomeComponent,
     QuienesSomosComponent,
     ContactoComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfesionalesComponent
   ],
 
   imports: [

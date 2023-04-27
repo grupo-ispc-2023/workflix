@@ -6,6 +6,7 @@ import { QuienesSomosComponent } from './layouts/pages/quienes-somos/quienes-som
 import { ContactoComponent } from './layouts/pages/contacto/contacto.component';
 import { LoginComponent } from './layouts/pages/login/login.component';
 import { RegistroComponent } from './layouts/pages/registro/registro.component';
+import { ProfesionalesComponent } from './layouts/pages/profesionales/profesionales.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,11 +14,14 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'profesionales', component: ProfesionalesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta por defecto
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+
+
 })
 export class AppRoutingModule { }
