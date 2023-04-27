@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
-import { ProfesionalesComponent } from './profesionales/profesionales.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +20,8 @@ import { ProfesionalesComponent } from './profesionales/profesionales.component'
     RegistroComponent,
     LoginComponent,
     ServiciosComponent,
-    ProfesionalesComponent
+
+
   ],
   exports:[
     HomeComponent,
@@ -31,7 +32,11 @@ import { ProfesionalesComponent } from './profesionales/profesionales.component'
   ],
 
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+
+
+
   ]
 })
 export class PagesModule {  }
