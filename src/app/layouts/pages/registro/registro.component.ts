@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, MinValidator, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+
 
 
 
@@ -13,6 +16,11 @@ export class RegistroComponent {
 
   
   forma!:FormGroup; // Declaración de la variable 'forma'
+
+  aceptoTerminos = false;  // aceptar terminos y condociones.
+
+
+
   
 //------------------------------------------------------------------------------------
   get nombreNoValido(){
@@ -48,10 +56,24 @@ export class RegistroComponent {
 
 //-----------------------------------------------------------------------------------
 
-  constructor(private fb:FormBuilder){
+
+
+
+  
+constructor(private fb:FormBuilder, public modalService: NgbModal){
 
     this.crearFormulario()
 
+  }
+
+  mostrarTerminos() {
+    const modalRef = this.modalService.open(TermsAndConditionsComponent);
+    modalRef.result.then((result) => {
+      if (!result) {
+        // Si no se aceptan los términos y condiciones, se impide el registro
+        alert('Debe aceptar los términos y condiciones para continuar.');
+      }
+    });
   }
 
   crearFormulario(){
@@ -85,7 +107,43 @@ export class RegistroComponent {
 
     }
 
+    if (!this.aceptoTerminos) {
+      alert('Debe aceptar los términos y condiciones antes de registrarse.');
+      return;
+    }
+
+
+
+    // Aquí va el código para procesar el formulario
+    if (this.aceptoTerminos === true) {
+      
+      alert('....Todo correcto para enviar el formulario de registro.....');
+    }
+
   }
+
+    // terminos y condiciones.--------------------------------------------------   
+
+    abrirModalTerminosCondiciones() {
+      const modalRef = this.modalService.open(TermsAndConditionsComponent);
+    
+      modalRef.result.then((result) => {
+        if (result === 'aceptar') {
+          this.aceptoTerminos = true;
+          
+        } else {
+          this.aceptoTerminos = false;
+        }
+      }, (reason) => {
+        console.log(`Dismissed with reason: ${reason}`);
+        this.aceptoTerminos = false;
+      });
+    }
+    //--------------------------------------------------------------------------
+
+
+
+
 
   limpiar(){
 
@@ -128,4 +186,8 @@ export class RegistroComponent {
     }
 
   }
+
+
+ 
+  
 }

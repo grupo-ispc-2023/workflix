@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfesionalesComponent } from './profesionales/profesionales.component';
+import { TermsAndConditionsComponent } from './registro/terms-and-conditions/terms-and-conditions.component';
 
 
 
@@ -22,7 +23,8 @@ import { ProfesionalesComponent } from './profesionales/profesionales.component'
     RegistroComponent,
     LoginComponent,
     ServiciosComponent,
-    ProfesionalesComponent
+    ProfesionalesComponent,
+    TermsAndConditionsComponent
     
 
 
