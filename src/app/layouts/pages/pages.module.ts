@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistroComponent,
     LoginComponent,
     ServiciosComponent,
+    
 
 
   ],
@@ -27,12 +29,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     QuienesSomosComponent,
     ContactoComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegistroComponent
   ],
 
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    
     
 
   
