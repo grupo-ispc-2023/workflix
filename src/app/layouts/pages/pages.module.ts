@@ -22,6 +22,7 @@ import { ProfesionalesComponent } from './profesionales/profesionales.component'
     RegistroComponent,
     LoginComponent,
     ServiciosComponent,
+    ProfesionalesComponent
     
 
 
