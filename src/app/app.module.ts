@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { PagesModule } from './layouts/pages/pages.module';
 import { SharedModule } from './shared/shared.module';
+import { FormularioProfesionalesClientesComponent } from './pages/formulario-profesionales-clientes/formulario-profesionales-clientes.component';
 
 
 
@@ -14,8 +15,7 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    
-   
+    FormularioProfesionalesClientesComponent,
     
   ],
   imports: [
