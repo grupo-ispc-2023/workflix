@@ -4,7 +4,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
-//import { LoginComponent } from './login/login.component';
+
+
 
 
 
@@ -13,18 +14,22 @@ import { RouterModule } from '@angular/router';
   declarations: [
     FooterComponent,
     NavComponent,
-    HeaderComponent
+    HeaderComponent,
+    
   ],
 
   exports: [
     FooterComponent,
     NavComponent,
-    HeaderComponent
+    HeaderComponent,
+    
+    
   ],
 
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    
   ]
 })
 export class SharedModule { }

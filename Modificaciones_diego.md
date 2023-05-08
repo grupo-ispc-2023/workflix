@@ -19,3 +19,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+Requerido ejecutar: npm install @ng-bootstrap/ng-bootstrap

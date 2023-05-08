@@ -1,32 +1,60 @@
 <div class="center-form">
-    <form action="">
-        <div class="form iniciar">
-          <h2 class="encabezado-2">Iniciar Sesión</h2>
-  
-          <div class="controls">
-            <input type="text" name="usuario" id="usuario" required />
-            <span class="barra"></span>
-            <label>Usuario</label>
-            <div class="no-valido text-danger d-none">
-            </div>
-          </div>
-  
-          <div class="controls">
-            <input type="password" name="pass" id="pass" required/>
-            <span class="barra"></span>
-            <label>Contraseña</label>
-            <div class="no-valido text-danger d-none">
-            </div>
-          </div>
-  
-          <button class="boton-form" type="button" onclick="return validarFormulario()">Iniciar Sesión</button>
-  
-          <p class="parrafo"><a href="recuperarPass.html">Olvidé mi contraseña</a></p>
-          <p class="parrafo">¿Eres nuevo en este sitio?<a href="formularioRegistro.html">Regístrate</a></p>
-         
-         </div>
-         
+  <form [formGroup]="forma" (ngSubmit)="guardar()">
+    <div class="form">
+      <h2 class="encabezado-2">Iniciar Sesión</h2>
+
+      <div class="controls">
+
+        <input 
+               type="text"
+               formControlName="usuario"
+               [class.is-invalid] = "usuarioNoValido"
+               placeholder="Usuario">
+
+        <small *ngIf="usuarioNoValido" class="text-danger">Ingrese su usuario com mínimo 4 letras</small>
+
+        <span class="barra"></span>
+        <label>usuario</label>
+        <div class="no-valido text-danger d-none"></div>
+      </div>   
+        
+      <div class="controls">
+        <input 
+             formControlName="password1"
+             [class.is-invalid] = "password1NoValido"      
+             type="password"
+             placeholder="Contraseña">
+             
+        
+      <small *ngIf="password1NoValido" class="text-danger">Ingrese un password con mínimo de 6 caracteres</small>
+        
+        <span
+          class="barra"
+        ></span>
+        
+        <label>Contraseña</label>
+        <div class="no-valido text-danger d-none"></div>
+      </div>      
+
+      <p class="parrafo mt-4">Estoy de acuerdo con <a href="#">Términos y Condiciones</a></p>
+
+     
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+          <button type="submit" class="boton-form">
+            Ingresar
+          </button>
+          
+        </div>
+      </div>
+
+   
+        <p class="parrafo"><a href="/registro">¿No tienes cuenta?</a></p>
+
          
         
-    </form>
-</div>
+
+      </div>
+  </form>

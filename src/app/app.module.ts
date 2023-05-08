@@ -10,11 +10,12 @@ import { FormularioProfesionalesClientesComponent } from './pages/formulario-pro
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     FormularioProfesionalesClientesComponent,
-   
     
   ],
   imports: [
@@ -22,6 +23,8 @@ import { FormularioProfesionalesClientesComponent } from './pages/formulario-pro
     AppRoutingModule,
     PagesModule,
     SharedModule,
+    
+    
     
   ],
   providers: [],
