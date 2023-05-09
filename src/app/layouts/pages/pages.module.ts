@@ -38,6 +38,7 @@ import { ReactiveFormsModule, FormsModule, } from '@angular/forms';
     ContactoComponent,
     DashboardComponent,
     RegistroComponent,
+    ProfesionalesComponent
     
     
   ],
