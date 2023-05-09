@@ -7,10 +7,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ProfesionalesComponent } from './profesionales/profesionales.component';
 import { TermsAndConditionsComponent } from './registro/terms-and-conditions/terms-and-conditions.component';
-
+import { FormularioProfesionalesClientesComponent } from './formulario-profesionales-clientes/formulario-profesionales-clientes.component';
+import { ReactiveFormsModule, FormsModule, } from '@angular/forms';
 
 
 
@@ -24,7 +24,10 @@ import { TermsAndConditionsComponent } from './registro/terms-and-conditions/ter
     LoginComponent,
     ServiciosComponent,
     ProfesionalesComponent,
-    TermsAndConditionsComponent
+    TermsAndConditionsComponent,
+    FormularioProfesionalesClientesComponent,
+    
+    
     
 
 
@@ -34,12 +37,16 @@ import { TermsAndConditionsComponent } from './registro/terms-and-conditions/ter
     QuienesSomosComponent,
     ContactoComponent,
     DashboardComponent,
-    RegistroComponent
+    RegistroComponent,
+    
+    
   ],
 
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
+    
     
     
 

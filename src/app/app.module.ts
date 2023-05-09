@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule, FormsModule, } from '@angular/forms';
+
 
 import { PagesModule } from './layouts/pages/pages.module';
 import { SharedModule } from './shared/shared.module';
-import { FormularioProfesionalesClientesComponent } from './pages/formulario-profesionales-clientes/formulario-profesionales-clientes.component';
+
 
 
 
@@ -15,7 +17,9 @@ import { FormularioProfesionalesClientesComponent } from './pages/formulario-pro
 @NgModule({
   declarations: [
     AppComponent,
-    FormularioProfesionalesClientesComponent,
+    
+    
+    
     
   ],
   imports: [
@@ -23,6 +27,9 @@ import { FormularioProfesionalesClientesComponent } from './pages/formulario-pro
     AppRoutingModule,
     PagesModule,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+    
     
     
     
