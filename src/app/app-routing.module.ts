@@ -8,11 +8,13 @@ import { ContactoComponent } from './layouts/pages/contacto/contacto.component';
 import { LoginComponent } from './layouts/pages/login/login.component';
 import { RegistroComponent } from './layouts/pages/registro/registro.component';
 import { ProfesionalesComponent } from './layouts/pages/profesionales/profesionales.component';
+import { AdminComponent } from './dashboard/admin/admin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'contacto', component: ContactoComponent },
+  { path: 'dashboard', component: AdminComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'profesionales', component: ProfesionalesComponent },
