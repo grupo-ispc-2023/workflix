@@ -523,9 +523,9 @@
 	
 	position: fixed;
 	top: 60px;
-	left: -300px;
+	left: -250px;
 	bottom: 0;
-	width: 300px;
+	width: 250px;
 	z-index: 996;
 	transition: all 0.3s;
 	padding: 20px;
@@ -561,7 +561,7 @@
   }
   @media (min-width: 1200px) {
 	.toggle-sidebar #main, .toggle-sidebar #footer {
-	  margin-left: 300px;
+	  margin-left: 250px;
 	}
 	.toggle-sidebar .sidebar {
 	  left: 0px;
