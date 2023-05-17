@@ -4,6 +4,10 @@ import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
+
+
 
 
 
@@ -15,6 +19,8 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     NavComponent,
     HeaderComponent,
+    SidebarComponent,
+    
     
   ],
 
@@ -22,6 +28,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     NavComponent,
     HeaderComponent,
+    SidebarComponent
     
     
   ],

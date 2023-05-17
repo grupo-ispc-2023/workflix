@@ -22,4 +22,7 @@ export class ProfesionalesComponent implements OnInit{
     this.lista = tarjetas
   }
 
+
+  
+
 }
