@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Tarjeta } from '../home/datos/tarjetas';
 import { tarjetas } from '../home/datos/datos';
 
 @Component({
   selector: 'app-profesionales',
   templateUrl: './profesionales.component.html',
-  styleUrls: ['./profesionales.component.css']
+  styleUrls: ['./profesionales.component.css'],
+  
 })
 export class ProfesionalesComponent implements OnInit{
 

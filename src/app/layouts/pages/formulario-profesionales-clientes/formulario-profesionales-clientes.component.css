@@ -1,0 +1,27 @@
+label{
+    color: var(--colorTextos);
+    font-size: 16px;
+    position: absolute;
+    left: 5px;
+    top:10px;
+    transition: 0.5s ease all;
+    pointer-events: none;
+}
+
+.parrafo{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-weight: 500;
+    text-justify: inter-word; 
+}
+
+
+form{
+    background: #fff;
+    width: 30%;
+    padding: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+   
+  
+}

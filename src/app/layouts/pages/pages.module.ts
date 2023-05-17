@@ -11,6 +11,7 @@ import { TermsAndConditionsComponent } from './registro/terms-and-conditions/ter
 import { FormularioProfesionalesClientesComponent } from './formulario-profesionales-clientes/formulario-profesionales-clientes.component';
 import { ReactiveFormsModule, FormsModule, } from '@angular/forms';
 import { DashboardModule } from 'src/app/dashboard/dashboard.module';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 
 
@@ -26,6 +27,7 @@ import { DashboardModule } from 'src/app/dashboard/dashboard.module';
     ProfesionalesComponent,
     TermsAndConditionsComponent,
     FormularioProfesionalesClientesComponent,
+    PerfilUsuarioComponent,
     
     
     

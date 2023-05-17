@@ -10,7 +10,7 @@ export const chartsVentas: ClassChartsVentas[] = [
 
             {
                 id: 1,
-                ventas: 5500, 
+                ventas: 7500, 
                 porcentaje: 15, 
 
                 }, 
