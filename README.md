@@ -8,7 +8,6 @@
 
 - ACUÑA, Natalin
 - CALIGIURI, Andrea
-- CEBALLOS, Elías Rey
 - DELGADO Marcelo
 - DÍAZ, Yandira
 - GIMÉNEZ, Diego Fabián
