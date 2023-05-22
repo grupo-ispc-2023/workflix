@@ -12,7 +12,7 @@ label{
     font-family: 'Poppins', sans-serif;
     text-align: center;
     font-weight: 500;
-    text-justify: inter-word; 
+    text-justify: inter-word;
 }
 
 
@@ -22,8 +22,8 @@ form{
     padding: 10px 0;
     border-radius: 10px;
     box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
-   
-  
+
+
 }
 
 
@@ -31,7 +31,7 @@ form{
 
 .cabecera-tarjeta{
     background-color: #0A769D;
-    width: 70%; 
+    width: 70%;
     color: #ffffff;
     z-index:2;
     font-size:medium;
@@ -39,10 +39,10 @@ form{
 }
 
 .boton-cards {
-    background-color:#60D5AB; 
-    border:#60D5AB 1px solid; 
-    border-radius: 0px 0px 40px 40px; 
-    padding-bottom: 10px; 
+    background-color:#60D5AB;
+    border:#60D5AB 1px solid;
+    border-radius: 0px 0px 40px 40px;
+    padding-bottom: 10px;
     padding-top: 10px;
     letter-spacing: 2px;
     transition-duration: 0.4s;
@@ -53,11 +53,11 @@ form{
   background-color: #1FBABF; /* Verde Kiwi */
   color: #ffffff;
 }
-    
+
 .center-form {
     display: flex;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 }
 
 .img-center-wwa{
@@ -83,8 +83,8 @@ input:focus,textarea:focus{
     color: rgb(94,93,93);
 }
 
-input:focus~label, 
-input:valid~label, 
+input:focus~label,
+input:valid~label,
 textarea:focus~label, textarea:valid~label{
     position: absolute;
     top: -14px;
