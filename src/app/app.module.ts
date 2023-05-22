@@ -8,6 +8,7 @@ import { ReactiveFormsModule, FormsModule, } from '@angular/forms';
 
 import { PagesModule } from './layouts/pages/pages.module';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -29,6 +30,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
     
     
     

@@ -211,3 +211,5 @@ input:focus~.barra::before, textarea:focus~.barra::before{
     display: flex;
     margin: 2rem 7rem;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
