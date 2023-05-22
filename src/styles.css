@@ -90,7 +90,7 @@ input:focus~.barra::before, textarea:focus~.barra::before{
     width: 100px;
     height: 40px;
     border:none;
-    color:#fff; 
+    color:#fff;
     border-radius: 4px;
     font-size: 16px;
     margin: 10px auto;
@@ -127,3 +127,43 @@ input:focus~.barra::before, textarea:focus~.barra::before{
         width: 90%;
     }
 }
+
+/* Estilos de la Home */
+
+.cabecera-tarjeta{
+    background-color: #0A769D;
+    width: 70%;
+    color: #ffffff;
+    z-index:2;
+    font-size:medium;
+    letter-spacing: 2px;
+}
+
+.boton-cards {
+    background-color:#60D5AB;
+    border:#60D5AB 1px solid;
+    border-radius: 0px 0px 40px 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    letter-spacing: 2px;
+    transition-duration: 0.4s;
+    color: #000000;
+}
+
+.boton-cards:hover {
+  background-color: #1FBABF; /* Verde Kiwi */
+  color: #ffffff;
+}
+
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-center-wwa{
+    display: flex;
+    margin: 2rem 7rem;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
