@@ -12,6 +12,11 @@ import { FormularioProfesionalesClientesComponent } from './formulario-profesion
 import { ReactiveFormsModule, FormsModule, } from '@angular/forms';
 import { DashboardModule } from 'src/app/dashboard/dashboard.module';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { NotificacionesComponent } from './notificaciones/notificaciones.component';
+import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-frecuentes.component';
+import { PagosComponent } from './pagos/pagos.component';
+import { FavoritosComponent } from './favoritos/favoritos.component';
+
 
 
 
@@ -28,6 +33,11 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     TermsAndConditionsComponent,
     FormularioProfesionalesClientesComponent,
     PerfilUsuarioComponent,
+    NotificacionesComponent,
+    PreguntasFrecuentesComponent,
+    PagosComponent,
+    FavoritosComponent,
+    
     
     
     
@@ -42,6 +52,7 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     ContactoComponent,    
     RegistroComponent,
     ProfesionalesComponent,
+    NotificacionesComponent
     
     
     

@@ -1,4 +1,9 @@
 
+:host {
+    display: block;
+    margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  }
+
 /* Estilos de la Home */
 
 .cabecera-tarjeta{

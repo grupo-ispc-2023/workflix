@@ -35,6 +35,10 @@ import { ChartsTraficoSitioComponent } from './charts/charts-trafico-sitio/chart
   imports: [
     CommonModule,
     NgApexchartsModule
-  ]
+  ],
+
+  
+
+
 })
 export class DashboardModule { }

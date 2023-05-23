@@ -4,3 +4,8 @@ h1 {
   font-size: 250%;
   margin-top: 28px;
 }
+
+:host {
+
+  background-color: blueviolet;
+}
