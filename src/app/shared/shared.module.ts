@@ -5,6 +5,10 @@ import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { FilterPipe } from './filter.pipe';
+import { FormsModule } from '@angular/forms';
+import { CarritoComponent } from './carrito/carrito.component';
+
 
 
 
@@ -20,6 +24,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     NavComponent,
     HeaderComponent,
     SidebarComponent,
+    FilterPipe,
+    CarritoComponent,
     
     
   ],
@@ -36,6 +42,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule
     
   ]
 })

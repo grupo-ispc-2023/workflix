@@ -14,6 +14,7 @@ import { NotificacionesComponent } from './layouts/pages/notificaciones/notifica
 import { PreguntasFrecuentesComponent } from './layouts/pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { PagosComponent } from './layouts/pages/pagos/pagos.component';
 import { FavoritosComponent } from './layouts/pages/favoritos/favoritos.component';
+import { CarritoComponent } from './shared/carrito/carrito.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'profesionales', component: ProfesionalesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta por defecto
+  { path: 'carrito', component: CarritoComponent }
 ];
 
 @NgModule({
