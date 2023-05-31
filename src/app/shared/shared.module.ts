@@ -5,17 +5,9 @@ import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { CarritoComponent } from './carrito/carrito.component';
-
-
-
-
-
-
-
-
+import { FilterPipe } from './filter.pipe';  
 
 
 @NgModule({
@@ -24,8 +16,8 @@ import { CarritoComponent } from './carrito/carrito.component';
     NavComponent,
     HeaderComponent,
     SidebarComponent,
-    FilterPipe,
     CarritoComponent,
+    FilterPipe
     
     
   ],
@@ -34,16 +26,16 @@ import { CarritoComponent } from './carrito/carrito.component';
     FooterComponent,
     NavComponent,
     HeaderComponent,
-    SidebarComponent
-    
+    SidebarComponent,
+    FilterPipe
     
   ],
 
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
-    
+    FormsModule,
+   
   ]
 })
 export class SharedModule { }

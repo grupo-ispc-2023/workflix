@@ -1,54 +1,72 @@
 <div class="container-fluid">
-    <!-- SECTION PROFESIONALES -->
-    <section id="profesionales">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Tarjeta del Profesional -->
-                <div *ngFor="let t of lista; let i=index"  class="item-box plo col-12 col-md-6 col-lg-3 text-center mb-5">
-                    <div class="card shadow bg-light" style="border-radius: 20px 0px 40px 40px; border:none;">
-                        <div class="card-header rounded-pill cabecera-tarjeta">
-                            {{t.profesion}} <i class="fa-solid fa-wrench"></i>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title"></h1>
-                            <div class="row mt-2">
-                                <div class="col-4 col-md-4 ms-2">
-                                  <img src="./assets/images/{{t.imagen}}" class="rounded-circle mt-2" width="90" height="90" alt="">
-                                </div>
-                                <div class="col-7 col-md-7 align-self-center text-start">
-                                    <h6>{{t.nombre}}</h6>
-                                    <hr>
-                                    <div class="col-7 col-md-7 align-self-center text-center">
-                                        <ul class="mb-0 list-unstyled d-flex flex-row h5" style="color: #1d1f1d;">
-                                            <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                                            <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                                            <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                                            <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                                            <li><i class="fa-regular fa-star fa-xs mx-1"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-grid gap-3 m-2">
-                                <div class="p-2 bg-white border my-3 mx-2 rounded">
-                                    <p class="card-text">
-                                      {{t.descripcion}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <button class="boton-cards align-middle" type="button">Contratar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FIN Tarjeta del Profesional -->
-               
-
+  <!-- SECTION PROFESIONALES -->
+  <section id="profesionales">
+    <div class="container-fluid">
+      <div class="row">
+        <header id="servicios">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="container-fluid text-center mt-3 mb-3">
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2 active" (click)="filter('')">Todos</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Albañil')">Albañil</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Electricista')">Electricista</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Gasista')">Gasista</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Pintor')">Pintor</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Plomero')">Plomero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Carpintero')">Carpintero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Cerrajero')">Cerrajero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Techista')">Techista</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Herrero')">Herrero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Piletero')">Piletero</a>
+              </div>
             </div>
-            <!--Close Row -->
-
-
+          </div>
+        </header>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Tarjeta del Profesional -->
+      <ng-container  *ngFor="let item of filterProfesion">
+        <div class="item-box plo col-12 col-md-6 col-lg-3 text-center mb-5">
+          <div class="card shadow bg-light" style="border-radius: 20px 0px 40px 40px; border:none;">
+            <div class="card-header rounded-pill cabecera-tarjeta">
+              {{ item.profesion }} <i class="fa-solid fa-wrench"></i>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title"></h1>
+              <div class="row mt-2">
+                <div class="col-4 col-md-4 ms-2">
+                  <img src="./assets/images/{{ item.imagen }}" class="rounded-circle mt-2" width="90" height="90" alt="">
+                </div>
+                <div class="col-7 col-md-7 align-self-center text-start">
+                  <h6>{{ item.nombre }}</h6>
+                  <hr>
+                  <div class="col-7 col-md-7 align-self-center text-center">
+                    <ul class="mb-0 list-unstyled d-flex flex-row h5" style="color: #1d1f1d;">
+                      <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                      <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                      <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                      <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                      <li><i class="fa-regular fa-star fa-xs mx-1"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="d-grid gap-3 m-2">
+                <div class="p-2 bg-white border my-3 mx-2 rounded">
+                  <p class="card-text">
+                    {{ item.descripcion }}
+                  </p>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="boton-cards align-middle" type="button" (click)="agregarcarrito(item)">Contratar</button>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </ng-container>
+    </div>
+    <!-- Close Row -->
+  </section>
+</div>

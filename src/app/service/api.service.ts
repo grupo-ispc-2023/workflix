@@ -7,10 +7,10 @@ import { map } from 'rxjs/operators';
 })
 export class ApiService {
 
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getProfesional(){
-    return this.http.get<any>("/workflix/src/app/layouts/pages/home/datos/datos.ts")
+    return this.http.get<any>("assets/datos-profesionales/datos.json")
     .pipe(map((res:any)=>{
       return res;
     }))
