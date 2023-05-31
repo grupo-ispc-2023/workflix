@@ -7,17 +7,17 @@
           <div class="row">
             <div class="col-md-12">
               <div class="container-fluid text-center mt-3 mb-3">
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2 active" (click)="filter('')">Todos</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Albañil')">Albañil</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Electricista')">Electricista</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Gasista')">Gasista</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Pintor')">Pintor</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Plomero')">Plomero</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Carpintero')">Carpintero</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Cerrajero')">Cerrajero</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Techista')">Techista</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Herrero')">Herrero</a>
-                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Piletero')">Piletero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('')" [ngClass]="{'active': filtroActivo === ''}">Todos</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Albañil')" [ngClass]="{'active': filtroActivo === 'Albañil'}">Albañil</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Electricista')" [ngClass]="{'active': filtroActivo === 'Electricista'}">Electricista</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Gasista')" [ngClass]="{'active': filtroActivo === 'Gasista'}">Gasista</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Pintor')" [ngClass]="{'active': filtroActivo === 'Pintor'}">Pintor</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Plomero')" [ngClass]="{'active': filtroActivo === 'Plomero'}">Plomero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Carpintero')" [ngClass]="{'active': filtroActivo === 'Carpintero'}">Carpintero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Cerrajero')" [ngClass]="{'active': filtroActivo === 'Cerrajero'}">Cerrajero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Techista')" [ngClass]="{'active': filtroActivo === 'Techista'}">Techista</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Herrero')" [ngClass]="{'active': filtroActivo === 'Herrero'}">Herrero</a>
+                <a class="list btn btn-light border btn-sm rounded-pill shadow p-2 mb-2 me-2" (click)="filter('Piletero')" [ngClass]="{'active': filtroActivo === 'Piletero'}">Piletero</a>
               </div>
             </div>
           </div>
