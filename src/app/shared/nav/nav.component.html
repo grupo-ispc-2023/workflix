@@ -47,9 +47,8 @@
       </ul>
       
       <div class="d-flex">
-        <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Buscar Profesional">
-        <span class="fas fa-search search-icon"></span>    
-    </div>
+        <input type="text" class="form-control" [(ngModel)]="searchKey" (keyup)="search($event)" placeholder="Buscar Profesional">
+      </div>
     <button routerLink="carrito" class="btn btn-light">
       <i style="font-size: 20px;"class="fas fa-cart-plus"></i>
   <div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>

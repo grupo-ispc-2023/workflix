@@ -22,6 +22,7 @@ export class ProfesionalesComponent implements OnInit {
     });
     this.carritoService.search.subscribe((val: any) => {
       this.searchKey = val;
+      this.applyFilter();
     });
   }
 
@@ -30,11 +31,15 @@ export class ProfesionalesComponent implements OnInit {
   }
 
   filter(profesion: string): void {
-    this.filterProfesion = this.profesionalesList.filter((a: any) => {
-      if (a.profesion === profesion || profesion === '') {
-        return a;
-      }
-    });
     this.filtroActivo = profesion; // Actualiza el filtro activo
+    this.applyFilter();
+  }
+
+  applyFilter(): void {
+    this.filterProfesion = this.profesionalesList.filter((a: any) => {
+      const professionMatch = a.profesion.toLowerCase().includes(this.searchKey.toLowerCase());
+      const isActiveFilter = this.filtroActivo === '' || a.profesion === this.filtroActivo;
+      return professionMatch && isActiveFilter;
+    });
   }
 }

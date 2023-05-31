@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common'
+import { DOCUMENT } from '@angular/common';
 import { CarritoService } from 'src/app/service/carrito.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { CarritoService } from 'src/app/service/carrito.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-  public totalItem : number = 0;
-  public searchTerm : string = '';
-  public isSidebarOpen: boolean = false; // Declare and initialize isSidebarOpen property
+  public totalItem: number = 0;
+  public searchKey: string = '';
+  public isSidebarOpen: boolean = false;
 
   constructor(@Inject(DOCUMENT) private document: Document, private carritoService: CarritoService) { }
 
@@ -21,14 +21,13 @@ export class NavComponent {
   }
 
   sidebarToggle() {
-    // Toggle sidebar function
     this.document.body.classList.toggle('toggle-sidebar');
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
   search(event: any) {
-    this.searchTerm = (event.target as HTMLInputElement).value;
-    console.log(this.searchTerm);
-    this.carritoService.search.next(this.searchTerm);
+    this.searchKey = event.target.value;
+    console.log(this.searchKey);
+    this.carritoService.search.next(this.searchKey);
   }
 }
