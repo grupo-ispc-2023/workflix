@@ -13,6 +13,15 @@ import { ChartsMejoresServiciosVendidosComponent } from './charts/charts-mejores
 import { ChartsActividadRecienteComponent } from './charts/charts-actividad-reciente/charts-actividad-reciente.component';
 import { ChartsInformeRadarComponent } from './charts/charts-informe-radar/charts-informe-radar.component';
 import { ChartsTraficoSitioComponent } from './charts/charts-trafico-sitio/charts-trafico-sitio.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+
+
+
+import { AdminChartsReportesComponent } from './charts/admin-charts-reportes/admin-charts-reportes.component';
+import { AdminChartsVentasComponent } from './charts/admin-charts-ventas/admin-charts-ventas.component';
+import { AdminChartsIngresosComponent } from './charts/admin-charts-ingresos/admin-charts-ingresos.component';
+import { AdminChartsClientesComponent } from './charts/admin-charts-clientes/admin-charts-clientes.component';
+
 
 
 
@@ -24,7 +33,15 @@ import { ChartsTraficoSitioComponent } from './charts/charts-trafico-sitio/chart
     AdquirirServicioComponent,    
     ChartsVentasComponent, 
     ChartsClientesComponent, 
-    ChartsReportesComponent, ChartsVentasRecientesComponent, ChartsMejoresServiciosVendidosComponent, ChartsActividadRecienteComponent, ChartsInformeRadarComponent, ChartsTraficoSitioComponent,
+    ChartsReportesComponent,
+     ChartsVentasRecientesComponent, 
+     ChartsMejoresServiciosVendidosComponent, 
+     ChartsActividadRecienteComponent, 
+     ChartsInformeRadarComponent, 
+     ChartsTraficoSitioComponent, 
+     UsuarioComponent, 
+     
+     AdminChartsReportesComponent, AdminChartsVentasComponent, AdminChartsIngresosComponent, AdminChartsClientesComponent,
     
 
 

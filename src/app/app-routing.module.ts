@@ -15,6 +15,7 @@ import { PreguntasFrecuentesComponent } from './layouts/pages/preguntas-frecuent
 import { PagosComponent } from './layouts/pages/pagos/pagos.component';
 import { FavoritosComponent } from './layouts/pages/favoritos/favoritos.component';
 import { CarritoComponent } from './shared/carrito/carrito.component';
+import { UsuarioComponent } from './dashboard/usuario/usuario.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'favoritos', component: FavoritosComponent},
   { path: 'contacto', component: ContactoComponent },
   { path: 'dashboard', component: AdminComponent },
+  { path: 'dashboardUsuario', component: UsuarioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'perfilUsuario', component: PerfilUsuarioComponent },
   { path: 'registro', component: RegistroComponent },
