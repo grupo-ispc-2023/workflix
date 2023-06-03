@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { ScrollingService } from 'src/app/scrolling.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +8,11 @@ import { Component, HostListener } from '@angular/core';
 })
 export class SidebarComponent {
   
+  constructor(private scrollingService: ScrollingService) { }
 
+  onClickEnlace() {
+    this.scrollingService.scrollToTop();
+  }
 //  isComponentVisible: boolean = true;
 
 //  @HostListener('window:scroll', [])
