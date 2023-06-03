@@ -82,6 +82,13 @@
       "nombre": "Ricardo Tapia",
       "descripcion": "Pintura en general, paredes de enduido, pintura de edificios. ______.",
       "imagen": "profesional-4.jpg"
+    },
+    {
+      "id": 13,
+      "profesion": "Podador",
+      "nombre": "Edward Scissorhands",
+      "descripcion": "Pintura en general, paredes de enduido, pintura de edificios. ______.",
+      "imagen": "profesional-2.jpg"
     }
   ]
   
