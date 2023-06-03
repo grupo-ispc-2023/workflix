@@ -4,8 +4,9 @@ h1 {
     font-size: 250%;
     margin-top: 28px;
   }
-  
+
+
   :host {
-  
-    background-color: blueviolet;
+    display: block;
+    margin-top: 30px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
   }

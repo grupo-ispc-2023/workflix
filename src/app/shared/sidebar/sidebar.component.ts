@@ -13,6 +13,11 @@ export class SidebarComponent {
   onClickEnlace() {
     this.scrollingService.scrollToTop();
   }
+
+  onClickPosition() {
+    const destination = 500; // La posición de destino deseada
+    this.scrollingService.scrollTo(destination);
+  }
 //  isComponentVisible: boolean = true;
 
 //  @HostListener('window:scroll', [])

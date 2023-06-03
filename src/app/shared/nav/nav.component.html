@@ -21,13 +21,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-3">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="onClickEnlace()">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/quienes-somos" routerLinkActive="active">Quiénes Somos</a>
+          <a class="nav-link" routerLink="/quienes-somos" routerLinkActive="active" (click)="onClickEnlace()" >Quiénes Somos</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a>            
+          <a class="nav-link" routerLink="/contacto" routerLinkActive="active" (click)="onClickEnlace()">Contacto</a>            
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -38,10 +38,10 @@
         
         
         <li class="nav-item">
-          <a class="btn btn-outline-success me-2 mt-0" routerLink="/login" routerLinkActive="active">Ingresar</a>
+          <a class="btn btn-outline-success me-2 mt-0" routerLink="/login" routerLinkActive="active" (click)="onClickEnlace()">Ingresar</a>
         </li>
         <li class="nav-item">            
-          <a class="btn btn-dark mt-0" routerLink="/registro" routerLinkActive="active">Registro</a>   
+          <a class="btn btn-dark mt-0" routerLink="/registro" routerLinkActive="active" (click)="onClickEnlace()">Registro</a>   
                    
         </li>          
       </ul>

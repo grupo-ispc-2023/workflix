@@ -9,4 +9,8 @@ export class ScrollingService {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  scrollTo(destination: number): void {
+    window.scrollTo({ top: destination, behavior: 'smooth' });
+  }
+
 }

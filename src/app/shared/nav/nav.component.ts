@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { CarritoService } from 'src/app/service/carrito.service';
+import { ScrollingService } from 'src/app/scrolling.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +13,11 @@ export class NavComponent {
   public searchKey: string = '';
   public isSidebarOpen: boolean = false;
 
-  constructor(@Inject(DOCUMENT) private document: Document, private carritoService: CarritoService) { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private carritoService: CarritoService,
+    private scrollingService: ScrollingService
+  ) { }
 
   ngOnInit(): void {
     this.carritoService.getProfesionales().subscribe(res => {
@@ -30,4 +35,11 @@ export class NavComponent {
     console.log(this.searchKey);
     this.carritoService.search.next(this.searchKey);
   }
+
+
+
+  onClickEnlace() {
+    this.scrollingService.scrollToTop();
+  }
 }
+
