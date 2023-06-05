@@ -2,9 +2,11 @@ from rest_framework import viewsets, permissions
 from .models import Servicio
 from .models import Provincia
 from .models import Ciudad
+from .models import Profesion
 from .serializer import ServicioSerializer
 from .serializer import ProvinciaSerializer
 from .serializer import CiudadSerializer
+from .serializer import ProfesionSerializer
 
 class ServicioViewSet(viewsets.ModelViewSet):
     queryset = Servicio.objects.all()
@@ -26,3 +28,10 @@ class CiudadViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = CiudadSerializer
+
+class ProfesionViewSet(viewsets.ModelViewSet):
+    queryset = Profesion.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = ProfesionSerializer

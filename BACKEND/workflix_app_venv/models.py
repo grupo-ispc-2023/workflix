@@ -23,3 +23,13 @@ class Ciudad(models.Model):
 
     def _str_(self):
         return self.nombre_ciudad
+
+class Profesion(models.Model):
+    id_Profesion = models.AutoField(primary_key=True)
+    nombre_Profesion = models.CharField(max_length=100, blank=False)
+    descripcion = models.TextField(max_length=500, blank=False)
+
+    def __str__(self):
+        return self.nombre_Profesion
+
+    

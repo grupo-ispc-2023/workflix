@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Servicio
 from .models import Provincia
 from .models import Ciudad
+from .models import Profesion
 
 class ServicioSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,4 +23,10 @@ class CiudadSerializer(serializers.ModelSerializer):
         fields = ('id',
                 'nombre_ciudad',
                 'provincia')
-        
+
+class ProfesionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profesion
+        fields = ('id',
+                'nombre_Profesion',
+                'descripcion')

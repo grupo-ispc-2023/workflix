@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'workflix_admin_venv.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'workflix',
+        'NAME': 'workflix_2023_db',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

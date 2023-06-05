@@ -12,10 +12,12 @@ from rest_framework import routers
 from .api import ServicioViewSet
 from .api import ProvinciaViewSet
 from .api import CiudadViewSet
+from .api import ProfesionViewSet
 
 router = routers.DefaultRouter()
 router.register('api/servicios', ServicioViewSet, 'servicios')
 router.register('api/provincias', ProvinciaViewSet, 'provincias')
-router.register('api/ciudades', CiudadViewSet, 'ciudades') 
+router.register('api/ciudades', CiudadViewSet, 'ciudades')
+router.register('api/profesiones', ProfesionViewSet, 'profesiones')
 
 urlpatterns = router.urls
