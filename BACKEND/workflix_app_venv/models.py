@@ -38,7 +38,7 @@ class Usuario_Profesional(models.Model):
     apellido = models.CharField(max_length=45, blank=False)
     email = models.EmailField(max_length=45, blank=False)
     password = models.CharField(max_length=200, blank=False)
-    foto_perfil = models.CharField(max_length=2083, blank=False)
+    foto_perfil = models.ImageField(blank=False)
     telefono = models.CharField(max_length=20, blank=False)
     descripcion = models.TextField(max_length=500, blank=False)
     calificacion_obtenida = models.FloatField(blank=False)
