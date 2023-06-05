@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import platform
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,13 +86,17 @@ WSGI_APPLICATION = 'workflix_admin_venv.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'workflix_2023_db',
+        'NAME': 'workflix',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
+        'sql_mode': 'traditional',
     }
 }
+
+if platform.system() == 'Darwin':  # Verifica si el sistema operativo es macOS
+    DATABASES['default']['unix_socket'] = '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock'
 
 
 # Password validation

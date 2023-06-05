@@ -3,10 +3,12 @@ from .models import Servicio
 from .models import Provincia
 from .models import Ciudad
 from .models import Profesion
+from .models import Usuario_Profesional
 from .serializer import ServicioSerializer
 from .serializer import ProvinciaSerializer
 from .serializer import CiudadSerializer
 from .serializer import ProfesionSerializer
+from .serializer import Usuario_ProfesionalSerializer
 
 class ServicioViewSet(viewsets.ModelViewSet):
     queryset = Servicio.objects.all()
@@ -35,3 +37,10 @@ class ProfesionViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = ProfesionSerializer
+
+class Usuario_ProfesionalViewSet(viewsets.ModelViewSet):
+    queryset = Usuario_Profesional.objects.all()
+    permissions_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = Usuario_ProfesionalSerializer

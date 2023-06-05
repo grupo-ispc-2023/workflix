@@ -4,10 +4,12 @@ from .serializer import ServicioSerializer
 from .serializer import ProvinciaSerializer
 from .serializer import CiudadSerializer
 from .serializer import ProfesionSerializer
+from .serializer import Usuario_ProfesionalSerializer
 from .models import Servicio
 from .models import Provincia
 from .models import Ciudad
 from .models import Profesion
+from .models import Usuario_Profesional
 
 
 # Create your views here.
@@ -27,3 +29,7 @@ class CiudadViewSet(viewsets.ModelViewSet):
 class ProfesionViewSet(viewsets.ModelViewSet):
     queryset = Profesion.objects.all()
     serializer_class = ProfesionSerializer
+
+class Usuario_ProfesionalViewSet(viewsets.ModelViewSet):
+    queryset = Usuario_Profesional.objects.all()
+    serializer_class = Usuario_ProfesionalSerializer

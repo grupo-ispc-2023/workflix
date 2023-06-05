@@ -32,4 +32,19 @@ class Profesion(models.Model):
     def __str__(self):
         return self.nombre_Profesion
 
-    
+class Usuario_Profesional(models.Model):
+    id_Usuario_Profesional = models.AutoField(primary_key=True)
+    nombres = models.CharField(max_length=45, blank=False)
+    apellido = models.CharField(max_length=45, blank=False)
+    email = models.EmailField(max_length=45, blank=False)
+    password = models.CharField(max_length=200, blank=False)
+    foto_perfil = models.CharField(max_length=2083, blank=False)
+    telefono = models.CharField(max_length=20, blank=False)
+    descripcion = models.TextField(max_length=500, blank=False)
+    calificacion_obtenida = models.FloatField(blank=False)
+    ciudad_id = models.IntegerField(blank=False)
+    rol_id = models.IntegerField(blank=False)
+    profesion_id = models.ForeignKey(Profesion, to_field="id_Profesion", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombres    
