@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'workflix_app_venv.apps.WorkflixAppVenvConfig'
+    'workflix_app_venv.apps.WorkflixAppVenvConfig',
+    'rest_framework.authtoken',       
+    'django.middleware.csrf',
+    'usuarios'
 ]
 
 MIDDLEWARE = [
@@ -53,6 +56,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -86,7 +91,7 @@ WSGI_APPLICATION = 'workflix_admin_venv.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'workflix',
+        'NAME': 'wx',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
@@ -139,3 +144,30 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+ROOT_URLCONF = 'workflix_admin_venv.urls'
+
+WSGI_APPLICATION = 'workflix_admin_venv.wsgi.application'
+
+STATIC_URL = 'static/'
+
+
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',  # Reemplaza con la URL de tu aplicación Angular
+]
+
+CORS_ALLOW_ALL_ORIGINS = False
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_HEADERS = [
+    'Authorization',
+    'Content-Type',
+]

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Servicio
+from workflix_app_venv.models import Servicio
 from .models import Provincia
 from .models import Ciudad
 from .models import Profesion

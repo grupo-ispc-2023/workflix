@@ -7,7 +7,8 @@
 #urlpatterns = [
 #    path('', include(router.urls)),
 #]
-
+from django.urls import path
+from django.contrib.auth.views import LoginView
 from rest_framework import routers
 from .api import ServicioViewSet
 from .api import ProvinciaViewSet
@@ -21,5 +22,9 @@ router.register('api/provincias', ProvinciaViewSet, 'provincias')
 router.register('api/ciudades', CiudadViewSet, 'ciudades')
 router.register('api/profesiones', ProfesionViewSet, 'profesiones')
 router.register('api/usuario_profesional', Usuario_ProfesionalViewSet, 'usuarios_profesionales')
+urlpatterns = [
+    path('accounts/login/', LoginView.as_view(), name='login'),
+] + router.urls
+
 
 urlpatterns = router.urls

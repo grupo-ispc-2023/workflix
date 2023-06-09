@@ -1,10 +1,10 @@
 from rest_framework import viewsets, permissions
-from .models import Servicio
+from workflix_app_venv.models import Servicio
 from .models import Provincia
 from .models import Ciudad
 from .models import Profesion
 from .models import Usuario_Profesional
-from .serializer import ServicioSerializer
+from workflix_app_venv.serializer import ServicioSerializer
 from .serializer import ProvinciaSerializer
 from .serializer import CiudadSerializer
 from .serializer import ProfesionSerializer
