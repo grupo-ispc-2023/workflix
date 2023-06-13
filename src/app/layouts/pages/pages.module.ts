@@ -16,7 +16,7 @@ import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-f
 import { PagosComponent } from './pagos/pagos.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { CampoRComponent } from './campo-r/campo-r.component';
-import { PerfilComponent } from './perfil/perfil.component';
+
 
 
 
@@ -38,7 +38,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     PagosComponent,
     FavoritosComponent,
     CampoRComponent,
-    PerfilComponent,
+    
 
 
   ],

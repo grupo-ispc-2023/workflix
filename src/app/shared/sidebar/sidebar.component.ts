@@ -1,14 +1,49 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject, Input } from '@angular/core';
 import { ScrollingService } from 'src/app/scrolling.service';
+import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
+import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
+import { Usuario, TipoUsuario } from 'src/app/modelos/modelo.usuario';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+  providers: [UsuariosService ]
 })
 export class SidebarComponent {
+  @Input() usuario?: Usuario;
+  buscarTerm!: string;
+  buscarResults!: any[];
+  showResults: boolean = false
+
+
   
-  constructor(private scrollingService: ScrollingService) { }
+
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    
+    private scrollingService: ScrollingService,
+  
+    private usuariosService: UsuariosService,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.authService.autenticado
+      .subscribe((auth: boolean) => {
+        if (auth) {
+          this.usuario = this.authService.obtenerUsuarioSiNoExpiro();
+        }
+        else {
+          this.usuario = undefined;
+        }
+      });
+  }
+
+  
+  
 
   onClickEnlace() {
     this.scrollingService.scrollToTop();

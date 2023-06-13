@@ -15,11 +15,13 @@
           <div class="col-xl-4">
              <div id="cardperfil" class="card">
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                  <ng-container *ngIf="usuario"> 
                    <img src="assets/img/profile-img.png" alt="Profile" class="rounded-circle">
-                   <h2>Martina</h2>
+                   <h2>{{ usuario.usuario }}</h2>
                    <h3>Pintora</h3>
                    <div class="social-links mt-2"> <a href="https://twitter.com/" class="twitter"><i class="bi bi-twitter"></i></a> <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"></i></a> <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"></i></a> <a href="https://www.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
-                </div>
+                  </ng-container>
+                  </div>
              </div>
           </div>
           <div class="col-xl-8">
@@ -29,41 +31,42 @@
                       <li class="nav-item"> <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Información General</button></li>
                       <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Editar perfil</button></li>
                       <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Configuración</button></li>
-                      <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">cambiar Password</button></li>
+                     
                    </ul>
                    <div class="tab-content pt-2">
+                     
                       <div class="tab-pane fade show active profile-overview" id="profile-overview">
                          <h5 class="card-title">A cerca de</h5>
                          <p class="small fst-italic">"Pintora profesional con experiencia en proyectos residenciales y comerciales. Ofrezco servicios de alta calidad, atención al detalle y soluciones efectivas. Confiable, eficiente y comprometida.".</p>
                          <h5 class="card-title">Detalles de perfil</h5>
+                         <ng-container *ngIf="usuario"> 
+
                          <div class="row">
-                            <div class="col-lg-3 col-md-4 label ">Nombre completo</div>
-                            <div class="col-lg-9 col-md-8">Martina Gutierrez</div>
+                            <div class="col-lg-3 col-md-4 label ">NOMBRE Y APELLIDO:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.nombre }} {{ usuario.apellido }}</div>
                          </div>
                          <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Compañía</div>
-                            <div class="col-lg-9 col-md-8">DL pintores</div>
+                            <div class="col-lg-3 col-md-4 label">CORREO ELECTRÓNICO:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.email }}</div>
                          </div>
                          <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Servicios ofrecidos</div>
-                            <div class="col-lg-9 col-md-8">Pintor</div>
+                            <div class="col-lg-3 col-md-4 label">DIRECCIÓN:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.direccion }}</div>
                          </div>
                          <div class="row">
                             <div class="col-lg-3 col-md-4 label">País</div>
                             <div class="col-lg-9 col-md-8">Argentina</div>
                          </div>
+                         
                          <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Dirección</div>
-                            <div class="col-lg-9 col-md-8">Roberto Saieg 165 - Córdoba</div>
+                            <div class="col-lg-3 col-md-4 label">TELÉFONO:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.telefono }}</div>
                          </div>
                          <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Teléfono</div>
-                            <div class="col-lg-9 col-md-8">3547 - 447504</div>
+                            <div class="col-lg-3 col-md-4 label">NOMBRE DE USUARIO:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.usuario }}</div>
                          </div>
-                         <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Email</div>
-                            <div class="col-lg-9 col-md-8"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e982c788878d8c9b9a8687a98c91888499858cc78a8684">[email&#160;protected]</a></div>
-                         </div>
+                        </ng-container>
                       </div>
                       <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                          <form>
@@ -74,55 +77,53 @@
                                   <div class="pt-2"> <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a> <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a></div>
                                </div>
                             </div>
-                            <div class="row mb-3">
-                               <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nombre completo</label>
-                               <div class="col-md-8 col-lg-9"> <input name="fullName" type="text" class="form-control" id="fullName" value="Martina Gutierrez"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="about" class="col-md-4 col-lg-3 col-form-label">A cerca de</label>
-                               <div class="col-md-8 col-lg-9"><textarea name="about" class="form-control" id="about" style="height: 100px">"Pintor y plomero profesional con experiencia en proyectos residenciales y comerciales. Ofrezco servicios de alta calidad, atención al detalle y soluciones efectivas en pintura y plomería. Confiable, eficiente y comprometido.".</textarea></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="company" class="col-md-4 col-lg-3 col-form-label">Compañía</label>
-                               <div class="col-md-8 col-lg-9"> <input name="company" type="text" class="form-control" id="company" value="DL Pintores"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Job" class="col-md-4 col-lg-3 col-form-label">Servicios ofrecidos</label>
-                               <div class="col-md-8 col-lg-9"> <input name="job" type="text" class="form-control" id="Job" value="Plomero -Pintor"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Country" class="col-md-4 col-lg-3 col-form-label">País</label>
-                               <div class="col-md-8 col-lg-9"> <input name="country" type="text" class="form-control" id="Country" value="Argentina"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Address" class="col-md-4 col-lg-3 col-form-label">Dirección</label>
-                               <div class="col-md-8 col-lg-9"> <input name="address" type="text" class="form-control" id="Address" value="Roberto Saieg 165"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Teléfono</label>
-                               <div class="col-md-8 col-lg-9"> <input name="phone" type="text" class="form-control" id="Phone" value="3547 - 447504"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                               <div class="col-md-8 col-lg-9"> <input name="email" type="email" class="form-control" id="Email" value="pintor@ejemplo.com"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter</label>
-                               <div class="col-md-8 col-lg-9"> <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook</label>
-                               <div class="col-md-8 col-lg-9"> <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram</label>
-                               <div class="col-md-8 col-lg-9"> <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin</label>
-                               <div class="col-md-8 col-lg-9"> <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#"></div>
-                            </div>
-                            <div class="text-center"> <button type="submit" class="btn btn-primary">Guardar cambios</button></div>
+                            <ng-container *ngIf="usuario">
+                              <div class="row">
+                                 <div class="column">
+                                   <form class="container-fluid" [formGroup]="perfilForm" (ngSubmit)="onSubmit(perfilForm.value)">
+                                     <label for="mail">Correo electrónico:</label><br>
+                                     <input class="form-control" type="email" formControlName="mail" id="mail" name="mail" placeholder="Nuevo correo electrónico" value="{{usuario.email}}" required>
+                                     <div *ngIf="mail?.invalid && (mail?.dirty || mail?.touched)" class="text-danger">
+                                       <div *ngIf="mail?.errors?.['required']">Se requiere un correo electrónico.</div>
+                                       <div *ngIf="mail?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
+                                       <div *ngIf="mail?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
+                                     </div>
+                     
+                                     <label for="adress">Domicilio:</label><br>
+                                     <input class="form-control" type="text" formControlName="adress" id="adress" placeholder="Nuevo domicilio" value="{{usuario.direccion}}" required>
+                                     <div *ngIf="adress?.invalid && (adress?.dirty || adress?.touched)" class="text-danger">
+                                       <div *ngIf="adress?.errors?.['required']">Se requiere un domicilio.</div>
+                                       <div *ngIf="adress?.errors?.['maxlength']">El domicilio debe tener un máximo de 40 caracteres.</div>
+                                     </div>
+                     
+                                     <label for="password">Contraseña:</label><br>
+                                     <input class="form-control" type="password" formControlName="password" id="password" placeholder="Nueva contraseña" value="{{usuario.clave}}" required>
+                                     <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
+                                       <div *ngIf="password?.errors?.['required']">Se requiere una contraseña.</div>
+                                       <div *ngIf="password?.errors?.['minlength']">La contraseña debe tener más de 6 caracteres.</div>
+                                       <div *ngIf="password?.errors?.['maxlength']">La contraseña debe tener un máximo de 20 caracteres.</div>
+                                     </div>
+                     
+                                     <label for="phone">Teléfono:</label><br>
+                                     <input class="form-control" type="tel" formControlName="phone" id="phone" placeholder="Nuevo teléfono" value="{{usuario.telefono}}" required>
+                                     <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="text-danger">
+                                       <div *ngIf="phone?.errors?.['required']">Se requiere un número de teléfono.</div>
+                                       <div *ngIf="phone?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
+                                       <div *ngIf="phone?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
+                                     </div>
+                     
+                                     <br>
+                                     <div class="text-center"> <button class="btn btn-primary" [disabled]="!perfilForm.valid" type="submit">Guardar</button></div>
+                                   </form>
+                                 </div>
+                               </div>
+
+                              
+
+                            </ng-container>     
+
+
+                           
                          </form>
                       </div>
                       <div class="tab-pane fade pt-3" id="profile-settings">
@@ -139,23 +140,7 @@
                             <div class="text-center"> <button type="submit" class="btn btn-primary">Guardar cambios</button></div>
                          </form>
                       </div>
-                      <div class="tab-pane fade pt-3" id="profile-change-password">
-                         <form>
-                            <div class="row mb-3">
-                               <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Password anterior</label>
-                               <div class="col-md-8 col-lg-9"> <input name="password" type="password" class="form-control" id="currentPassword"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Nuevo Password</label>
-                               <div class="col-md-8 col-lg-9"> <input name="newpassword" type="password" class="form-control" id="newPassword"></div>
-                            </div>
-                            <div class="row mb-3">
-                               <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-ingresar nuevo Password</label>
-                               <div class="col-md-8 col-lg-9"> <input name="renewpassword" type="password" class="form-control" id="renewPassword"></div>
-                            </div>
-                            <div class="text-center"> <button type="submit" class="btn btn-primary">Cambiar password</button></div>
-                         </form>
-                      </div>
+                      
                    </div>
                 </div>
              </div>
