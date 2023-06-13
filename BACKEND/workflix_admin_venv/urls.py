@@ -20,5 +20,5 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('workflix_app_venv.urls')),
-    path('accounts/', include('usuarios.urls')),
+    path('api/', include('usuarios.urls')),
 ]

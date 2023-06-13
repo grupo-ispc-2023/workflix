@@ -10,6 +10,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { FilterPipe } from './filter.pipe';  
 
 
+
 @NgModule({
   declarations: [
     FooterComponent,

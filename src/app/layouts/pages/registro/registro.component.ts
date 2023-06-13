@@ -1,193 +1,58 @@
-import { Component } from '@angular/core';
-import { FormBuilder, MinValidator, Validators } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
-
+import { HttpStatusCode } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
+import { TipoUsuario } from 'src/app/modelos/modelo.usuario';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.css'],
+  providers: [ UsuariosService ]
 })
-export class RegistroComponent {
+export class RegistroComponent implements OnInit {
+  registrarForm!: FormGroup
+  usuarios = { fname: '', lname: '', mail: '', adress: '', user: '', password: '', phone: '' }
 
-  
-  forma!:FormGroup; // Declaración de la variable 'forma'
+  @Input() resultado: ResultadoApi;
 
-  aceptoTerminos = false;  // aceptar terminos y condociones.
-
-
-
-  
-//------------------------------------------------------------------------------------
-  get nombreNoValido(){
-
-
-    return this.forma.get('nombre')?.invalid && this.forma.get('nombre')?.touched;
-
+  constructor(private fb: FormBuilder, private usuariosService: UsuariosService) {
+    this.resultado = {
+      mensaje: "",
+      data: {},
+      status: 0 as HttpStatusCode
+    }
   }
 
-  get apellidoNoValido(){
-
-    return this.forma.get('apellido')?.invalid && this.forma.get('apellido')?.touched;
-
-  }
-
-  get correoNoValido(){
-
-    return this.forma.get('correo')?.invalid && this.forma.get('correo')?.touched;
-
-  }
-
-  get password1NoValido(){
-
-    return this.forma.get('password1')?.invalid && this.forma.get('password1')?.touched;
-
-  }
-
-  get password2NoValido(){
-
-    return this.forma.get('password2')?.invalid && this.forma.get('password2')?.touched;
-
-  }  
-
-//-----------------------------------------------------------------------------------
-
-
-
-
-  
-constructor(private fb:FormBuilder, public modalService: NgbModal){
-
-    this.crearFormulario()
-
-  }
-
-  mostrarTerminos() {
-    const modalRef = this.modalService.open(TermsAndConditionsComponent);
-    modalRef.result.then((result) => {
-      if (!result) {
-        // Si no se aceptan los términos y condiciones, se impide el registro
-        alert('Debe aceptar los términos y condiciones para continuar.');
-      }
+  ngOnInit(): void {
+    this.registrarForm = this.fb.group({
+      fname: [this.usuarios.fname, [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
+      lname: [this.usuarios.lname, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
+      mail: [this.usuarios.mail, [Validators.required, Validators.minLength(10), Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~-]+@[^,;\s]+(?:.[a-zA-Z0-9-]+)$"), Validators.maxLength(45)]],
+      adress: [this.usuarios.adress, [Validators.required, Validators.maxLength(40)]],
+      user: [this.usuarios.user, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      password: [this.usuarios.password, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+      phone: [this.usuarios.phone, [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
     });
   }
 
-  crearFormulario(){
-    this.forma = this.fb.group({
-      nombre:['', [Validators.required , Validators.minLength(4)]],
-      apellido:['', [Validators.required , Validators.minLength(3)]],
-      correo:['', [Validators.required , Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      password1:['', [Validators.required , Validators.minLength(6)]],
-      password2:['', [Validators.required]]
+  get fname() { return this.registrarForm.get('fname'); }
+  get lname() { return this.registrarForm.get('lname'); }
+  get mail() { return this.registrarForm.get('mail'); }
+  get adress() { return this.registrarForm.get('adress'); }
+  get user() { return this.registrarForm.get('user'); }
+  get password() { return this.registrarForm.get('password'); }
+  get phone() { return this.registrarForm.get('phone'); }
 
-    }, {
-      
-      validator:this.passwordIguales('password1','password2')
-    }
-    
-    )
-  }
-
-  guardar(){
-    console.log(this.forma);
-
-    this.passNoValido();
-
-    if (this.forma.invalid) {
-
-      return Object.values(this.forma.controls).forEach(control=> {
-
-        control.markAllAsTouched()
-
-      })
-
-    }
-
-    if (!this.aceptoTerminos) {
-      alert('Debe aceptar los términos y condiciones antes de registrarse.');
-      return;
-    }
-
-
-
-    // Aquí va el código para procesar el formulario
-    if (this.aceptoTerminos === true) {
-      
-      alert('....Todo correcto para enviar el formulario de registro.....');
-    }
-
-  }
-
-    // terminos y condiciones.--------------------------------------------------   
-
-    abrirModalTerminosCondiciones() {
-      const modalRef = this.modalService.open(TermsAndConditionsComponent);
-    
-      modalRef.result.then((result) => {
-        if (result === 'aceptar') {
-          this.aceptoTerminos = true;
-          
-        } else {
-          this.aceptoTerminos = false;
-        }
-      }, (reason) => {
-        console.log(`Dismissed with reason: ${reason}`);
-        this.aceptoTerminos = false;
+  onSubmit(value: any) {
+    this.usuariosService.registrar(value.fname, value.lname, value.mail, value.adress, value.user, value.password, value.phone, TipoUsuario.Cliente)
+      .subscribe({
+        next: (exito: ResultadoApi) => { this.resultado = exito; },
+        error: (error: ResultadoApi) => { this.resultado = error; },
+        complete: () => {}
       });
-    }
-    //--------------------------------------------------------------------------
-
-
-
-
-
-  limpiar(){
-
-  this.forma.reset();
-
   }
-
-  passNoValido() {
-
-    const pass1 =this.forma.get('password1')?.value;
-    const pass2 =this.forma.get('password1')?.value;
-
-    if (pass1 !== pass2) {
-
-      return true;
-
-    }else {
-      return false;
-    }
-
-  }
-
-
-
-  passwordIguales(pass1Name:string, pass2Name:string) {
-
-    return (formGroup:FormGroup) => {
-
-      const pass1Control = formGroup.get(pass1Name);
-      const pass2Control = formGroup.get(pass2Name);
-
-      if (pass1Control?.value === pass2Control?.value) {
-
-        pass2Control?.setErrors(null);     
-
-      }else{
-        pass2Control?.setErrors({noEsIgual:true})
-      }
-
-    }
-
-  }
-
-
- 
-  
 }

@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, MinValidator, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { HttpStatusCode } from '@angular/common/http';
+import {  OnInit, ElementRef, Input } from '@angular/core';
 
+import { Router } from '@angular/router';
+import { subscribeOn } from 'rxjs';
+import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 
 
@@ -10,7 +17,12 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  
+  loginForm!: FormGroup;
+  usuario;
+  @Input() resultado: ResultadoApi | undefined;
+
   
   forma!:FormGroup; // Declaración de la variable 'forma'
   
@@ -18,15 +30,15 @@ export class LoginComponent {
   get usuarioNoValido(){
 
 
-    return this.forma.get('usuario')?.invalid && this.forma.get('usuario')?.touched;
+    return this.forma.get('user')?.invalid && this.forma.get('user')?.touched;
 
   }
 
   
 
-  get password1NoValido(){
+  get passwordNoValido(){
 
-    return this.forma.get('password1')?.invalid && this.forma.get('password1')?.touched;
+    return this.forma.get('password')?.invalid && this.forma.get('password')?.touched;
 
   }
 
@@ -34,18 +46,33 @@ export class LoginComponent {
 
 //-----------------------------------------------------------------------------------
 
-  constructor(private fb:FormBuilder){
+constructor(
+  private fb: FormBuilder,
+  private router: Router,
+  private elementRef: ElementRef,
+  private authService: AuthService
+) {
+  this.usuario = { user: "", password: "" };
+  this.resultado = undefined;
+  this.crearFormulario();
+}
 
-    this.crearFormulario()
 
+
+  ngOnInit(): void {
+      this.loginForm = this.fb.group({
+        user: [this.usuario.user, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+        password: [this.usuario.password, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+    });
   }
+    
 
   crearFormulario(){
     this.forma = this.fb.group({
-      usuario:['', [Validators.required , Validators.minLength(4)]],
+      user:['', [Validators.required , Validators.minLength(4)]],
       
       
-      password1:['', [Validators.required , Validators.minLength(6)]],
+      password:['', [Validators.required , Validators.minLength(6)]],
      
 
     }, {
@@ -56,27 +83,41 @@ export class LoginComponent {
     )
   }
 
-  guardar(){
-    console.log(this.forma);
+  get user() { return this.loginForm.get('user'); }
+  get password() { return this.loginForm.get('password'); }
 
-    
-
-    if (this.forma.invalid) {
-
-      return Object.values(this.forma.controls).forEach(control=> {
-
-        control.markAllAsTouched()
-
-      })
-
-    }
-
-  }
+  onSubmit(value: any) {
+  this.authService.login(value.user, value.password)
+    .subscribe({
+      next: (exito: ResultadoApi) => {
+        this.resultado = undefined;
+        this.router.navigate(['/']);
+        this.elementRef.nativeElement.ownerDocument.documentElement.scrollTop = 0;
+      },
+      error: (error: ResultadoApi) => {
+        this.resultado = error;
+      },
+      complete: () => {}
+    });
+}
 
   limpiar(){
 
   this.forma.reset();
 
+  }
+
+  guardar() {
+    console.log(this.forma);
+  
+    if (this.forma.invalid) {
+      return Object.values(this.forma.controls).forEach((control) => {
+        control.markAllAsTouched();
+      });
+    }
+  
+    const value = this.forma.value;
+    this.onSubmit(value);
   }
 
   

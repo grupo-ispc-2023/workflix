@@ -16,15 +16,14 @@ from .api import CiudadViewSet
 from .api import ProfesionViewSet
 from .api import Usuario_ProfesionalViewSet
 
+
 router = routers.DefaultRouter()
 router.register('api/servicios', ServicioViewSet, 'servicios')
 router.register('api/provincias', ProvinciaViewSet, 'provincias')
 router.register('api/ciudades', CiudadViewSet, 'ciudades')
 router.register('api/profesiones', ProfesionViewSet, 'profesiones')
 router.register('api/usuario_profesional', Usuario_ProfesionalViewSet, 'usuarios_profesionales')
-urlpatterns = [
-    path('accounts/login/', LoginView.as_view(), name='login'),
-] + router.urls
+
 
 
 urlpatterns = router.urls

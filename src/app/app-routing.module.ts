@@ -16,6 +16,7 @@ import { PagosComponent } from './layouts/pages/pagos/pagos.component';
 import { FavoritosComponent } from './layouts/pages/favoritos/favoritos.component';
 import { CarritoComponent } from './shared/carrito/carrito.component';
 import { UsuarioComponent } from './dashboard/usuario/usuario.component';
+import { PerfilComponent } from './layouts/pages/perfil/perfil.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'dashboardUsuario', component: UsuarioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'perfilUsuario', component: PerfilUsuarioComponent },
+  { path: 'perfil', component: PerfilComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'profesionales', component: ProfesionalesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta por defecto

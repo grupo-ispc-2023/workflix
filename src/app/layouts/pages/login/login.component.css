@@ -1,10 +1,9 @@
 :host {
     display: block;
-    margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+    margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
   }
 
-
-label{
+  label{
     color: var(--colorTextos);
     font-size: 16px;
     position: absolute;

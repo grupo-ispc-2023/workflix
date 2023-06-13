@@ -1,116 +1,110 @@
-from django.contrib.auth import login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.urls import reverse
-from django.http import HttpResponseRedirect
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_protect
-from django.views.generic import TemplateView
-from django.views.generic.base import View
-from django.views.generic.edit import FormView
-from usuarios import config
-from usuarios.models import RegistrationForm, LoginForm
-
-
-class LoginView(FormView):
-    template_name = 'registration/login.html'
-    form_class = LoginForm
-
-    @method_decorator(csrf_protect)
-    def dispatch(self, *args, **kwargs):
-        return super(LoginView, self).dispatch(*args, **kwargs)
-
-    def form_valid(self, form):
-        login(self.request, form.get_user())
-        return super(LoginView, self).form_valid(form)
-
-    def get_success_url(self):
-        try:
-            return config.LOGIN_REDIRECT_URL
-        except:
-            return "/accounts/profile/"
-
-
-class LogoutView(View):
-
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(LogoutView, self).dispatch(*args, **kwargs)
-
-    def get(self, request):
-        logout(request)
-        return HttpResponseRedirect(config.LOGOUT_REDIRECT_URL)
-
-
-class RegisterView(FormView):
-    template_name = 'registration/register.html'
-    form_class = RegistrationForm
-
-    @method_decorator(csrf_protect)
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return HttpResponseRedirect(config.INDEX_REDIRECT_URL)
-        else:
-            return super(RegisterView, self).dispatch(request, *args, **kwargs)
-
-    def form_valid(self, form):
-
-        user = User.objects.create_user(
-            username=form.cleaned_data['username'],
-            password=form.cleaned_data['password1'],
-            email=form.cleaned_data['email']
-        )
-
-        return super(RegisterView, self).form_valid(form)
-
-    def get_success_url(self):
-        return reverse('register-success')
-
-
-class RegisterSuccessView(TemplateView):
-    template_name = 'registration/success.html'
-
-
-from django.contrib.auth import login, authenticate
-from rest_framework.authtoken.models import Token
-from rest_framework.decorators import api_view, authentication_classes, permission_classes
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth import authenticate, login, logout
+from django.utils import timezone
+from rest_framework import generics, status
+from rest_framework.serializers import ValidationError
+from rest_framework.request import Request
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
+from rest_framework.permissions import AllowAny
+from .serializer import UsuarioSerializer, RegistroSerializer
+from .models import Usuario
 
-# ...
-
-class RegisterSuccessView(TemplateView):
-    template_name = 'registration/success.html'
+from .common import crear_respuesta
+from rest_framework import routers, viewsets
 
 
-class LoginView(FormView):
-    template_name = 'registration/login.html'
-    form_class = LoginForm
+class SignupView(generics.CreateAPIView):
+    permission_classes = [AllowAny]
 
-    # ...
+    queryset = Usuario.objects.all()
+    serializer_class = RegistroSerializer
 
-    def form_valid(self, form):
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password']
+    def create(self, request: Request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            try:
+                self.perform_create(serializer)
+                return crear_respuesta("Usuario registrado exitosamente", serializer.data, status.HTTP_201_CREATED)
+            except ValidationError as ex:
+                return crear_respuesta(str(ex.detail[0]), status_code=status.HTTP_400_BAD_REQUEST)
+
+        return crear_respuesta("Error registrando usuario", serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+
+class LoginView(APIView):
+    permission_classes = [AllowAny]
+
+    
+
+    def post(self, request: Request):
+        username = request.data.get('usuario')
+        password = request.data.get('clave')
         user = authenticate(username=username, password=password)
 
-        if user is not None:
-            if user.is_active:
-                login(self.request, user)
-                token, created = Token.objects.get_or_create(user=user)
-                self.request.session['token'] = token.key
-                return super(LoginView, self).form_valid(form)
+        if user:
+            token = RefreshToken.for_user(user)
+            access_token = token.access_token
+            access_token.set_exp(lifetime=timezone.timedelta(days=1))
+            login(request, user)
 
-        return self.form_invalid(form)
+            usuario = Usuario.objects.get(pk=user.id)
+            serializer = UsuarioSerializer(usuario)
+            if not user.is_staff:
+                carrito = self._get_carrito(user)
+                respuesta = crear_respuesta("Inicio de sesión exitoso",
+                                            {'carritoActual': carrito.id, 'usuarioActual': serializer.data,
+                                             'accessToken': {'acceso': str(access_token), 'refresco': str(token)}},
+                                            status.HTTP_200_OK)
+            else:
+                respuesta = crear_respuesta("Inicio de sesión exitoso",
+                                            {'usuarioActual': serializer.data,
+                                             'accessToken': {'acceso': str(access_token), 'refresco': str(token)}},
+                                            status.HTTP_200_OK)
 
-@api_view(['GET'])
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
-def protected_view(request):
-    # Tu lógica de vista protegida aquí
-    user = request.user
-    data = {'message': f'Hello, {user.username}! This is a protected view.'}
-    return Response(data)
+            respuesta.set_cookie('accessToken', token, httponly=True)
+            return respuesta
+
+        return crear_respuesta("Error iniciando sesión", status_code=status.HTTP_404_NOT_FOUND)
 
 
+
+
+class LogoutView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request: Request):
+        logout(request)
+        token: OutstandingToken
+        for token in OutstandingToken.objects.filter(user=request.user.id):
+            _, _ = BlacklistedToken.objects.get_or_create(token=token)
+
+        return crear_respuesta("Sesión terminada con éxito", status_code=status.HTTP_200_OK)
+    
+class UsuarioViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+
+    def update(self, request, *args, **kwargs):
+        usuario = self.get_object()
+
+        nueva_direccion = request.data.get('direccion')
+        nuevo_email = request.data.get('email')
+        nueva_clave = request.data.get('clave')
+        nuevo_telefono = request.data.get('telefono')
+        nuevas_observaciones = request.data.get('observaciones')
+
+        usuario.direccion = nueva_direccion
+        usuario.email = nuevo_email
+        usuario.telefono = nuevo_telefono
+        usuario.observaciones = nuevas_observaciones
+        usuario.set_password(nueva_clave)
+        usuario.save()
+
+        serializer = self.get_serializer(usuario)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    

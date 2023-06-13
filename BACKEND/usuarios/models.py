@@ -1,59 +1,38 @@
 # -*- coding: utf-8 -*-
-import re
-from django import forms
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
+
 from django.utils.translation import gettext_lazy as _
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 
 
-class LoginForm(AuthenticationForm):
-
-    username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(
-        attrs={'maxlength': 30, 'class': 'form-control', 'placeholder': _("Username")}))
-    password = forms.CharField(widget=forms.PasswordInput(
-        attrs={'maxlength': 30, 'class': 'form-control', 'placeholder': _("Password")}))
-
-    def __init__(self, *args, **kwargs):
-        super(LoginForm, self).__init__(*args, **kwargs)
-        if self.errors:
-            for f_name in self.fields:
-                classes = self.fields[f_name].widget.attrs.get('class', '')
-                classes += ' has-error'
-                self.fields[f_name].widget.attrs['class'] = classes
 
 
-class RegistrationForm(forms.Form):
 
-    username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(
-        attrs={'maxlength': 30, 'class': 'form-control', 'placeholder': _("Username")}))
-    email = forms.EmailField(widget=forms.TextInput(
-        attrs={'maxlength': 60, 'class': 'form-control', 'placeholder': _("Email Address")}))
-    password1 = forms.CharField(widget=forms.PasswordInput(
-        attrs={'maxlength': 30, 'class': 'form-control', 'placeholder': _("Password")}))
-    password2 = forms.CharField(widget=forms.PasswordInput(
-        attrs={'maxlength': 30, 'class': 'form-control', 'placeholder': _("Confirm your password")}))
+class Usuario(AbstractUser):
+    class TipoUsuario(models.IntegerChoices):
+        ADMINISTRADOR = 1
+        CLIENTE = 2
 
-    def __init__(self, *args, **kwargs):
-        super(RegistrationForm, self).__init__(*args, **kwargs)
-        if self.errors:
-            for f_name in self.fields:
-                if f_name in self.errors:
-                    classes = self.fields[f_name].widget.attrs.get('class', '')
-                    classes += ' has-error'
-                    self.fields[f_name].widget.attrs['class'] = classes
+    first_name = models.CharField(_("Nombre"), max_length=150, blank=False)
+    last_name = models.CharField(_("Apellido"), max_length=150, blank=False)
+    email = models.EmailField(_('Correo electrónico'), blank=False)
+    tipo = models.IntegerField(choices=TipoUsuario.choices, default=TipoUsuario.ADMINISTRADOR, blank=False)
+    direccion = models.CharField(max_length=100, blank=False)
+    telefono = models.CharField(max_length=20, blank=True)
+    observaciones = models.CharField(max_length=200, blank=True)
 
-    def clean_username(self):
-        try:
-            user = User.objects.get(
-                username__iexact=self.cleaned_data['username'])
-        except User.DoesNotExist:
-            return self.cleaned_data['username']
-        raise forms.ValidationError(_("Account already exists."))
+    class Meta:
+        db_table = "auth_user"
+        verbose_name = "Listado de usuarios"
+        verbose_name_plural = "Usuarios"
 
-    def clean(self):
-        if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:
-            if self.cleaned_data['password1'] != self.cleaned_data['password2']:
-                raise forms.ValidationError(_("Passwords don't match."))
-        return self.cleaned_data
+    def __unicode__(self):
+        return self.first_name
+
+    def __str__(self):
+        return self.first_name
     
+   
+
 

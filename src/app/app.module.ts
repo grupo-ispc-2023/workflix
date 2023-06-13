@@ -9,15 +9,18 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PagesModule } from './layouts/pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthService } from './servicios/auth.service';
+import { AuthInterceptor } from './servicios/auth.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,   
     
     
     
@@ -31,13 +34,27 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem('accessToken');
+        }
+      }
+    }),
+    
     
     
     
     
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
