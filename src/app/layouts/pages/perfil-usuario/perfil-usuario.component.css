@@ -7,7 +7,10 @@
  }
  
  
-   
+ :host {
+    display: block;
+    margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  }
 
  
  

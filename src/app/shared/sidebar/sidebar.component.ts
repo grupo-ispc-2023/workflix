@@ -6,6 +6,7 @@ import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
 import { Usuario, TipoUsuario } from 'src/app/modelos/modelo.usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { HttpStatusCode } from '@angular/common/http';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,10 +18,7 @@ export class SidebarComponent {
   @Input() usuario?: Usuario;
   buscarTerm!: string;
   buscarResults!: any[];
-  showResults: boolean = false
-
-
-  
+  showResults: boolean = false  
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -43,7 +41,15 @@ export class SidebarComponent {
   }
 
   
-  
+  logout() {
+    this.authService.logout()
+      .subscribe((resultado: ResultadoApi) => {
+        if (resultado.status == HttpStatusCode.Ok) {
+          this.usuario = undefined;
+          this.router.navigate((['/']));
+        }
+      });
+  }
 
   onClickEnlace() {
     this.scrollingService.scrollToTop();
