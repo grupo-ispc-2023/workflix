@@ -18,9 +18,11 @@ import { JwtModule } from '@auth0/angular-jwt';
 
 
 
+
 @NgModule({
   declarations: [
-    AppComponent,   
+    AppComponent,
+    
     
     
     

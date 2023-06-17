@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
 import { TipoUsuario } from 'src/app/modelos/modelo.usuario';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { Router } from '@angular/router';
 
 
 
@@ -19,7 +20,7 @@ export class RegistroComponent implements OnInit {
 
   @Input() resultado: ResultadoApi;
 
-  constructor(private fb: FormBuilder, private usuariosService: UsuariosService) {
+  constructor(private fb: FormBuilder, private usuariosService: UsuariosService, private router: Router) {
     this.resultado = {
       mensaje: "",
       data: {},
@@ -50,7 +51,11 @@ export class RegistroComponent implements OnInit {
   onSubmit(value: any) {
     this.usuariosService.registrar(value.fname, value.lname, value.mail, value.adress, value.user, value.password, value.phone, TipoUsuario.Cliente)
       .subscribe({
-        next: (exito: ResultadoApi) => { this.resultado = exito; },
+        next: (exito: ResultadoApi) => {
+          this.resultado = exito;
+          // Redirigir a la página deseada
+          this.router.navigate(['/login']);
+        },
         error: (error: ResultadoApi) => { this.resultado = error; },
         complete: () => {}
       });

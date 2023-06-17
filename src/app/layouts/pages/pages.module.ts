@@ -16,6 +16,17 @@ import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-f
 import { PagosComponent } from './pagos/pagos.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { CampoRComponent } from './campo-r/campo-r.component';
+import { CatServiciosComponent } from './cat-servicios/cat-servicios.component';
+import { ArtServiciosComponent } from './art-servicios/art-servicios.component';
+import { ConfigAdminComponentimplements } from './config-admin/config-admin.component';
+import { ServiciosDisponiblesComponent } from './servicios-disponibles/servicios-disponibles.component';
+import { ServiciosComponent } from './servicios/servicios.component';
+import { CarroComponent } from './carro/carro.component';
+import { ServicioCargaComponent } from './servicio-carga/servicio-carga.component';
+import { ServiciosAgregarComponent } from './servicios-agregar/servicios-agregar.component';
+import { ServiciosCatComponent } from './servicios-cat/servicios-cat.component';
+import { ServiciosVendidosComponent } from './servicios-vendidos/servicios-vendidos.component';
+
 
 
 
@@ -38,7 +49,18 @@ import { CampoRComponent } from './campo-r/campo-r.component';
     PagosComponent,
     FavoritosComponent,
     CampoRComponent,
+    CatServiciosComponent,
+    ArtServiciosComponent,
+    ConfigAdminComponentimplements,
+    ServiciosDisponiblesComponent,
+    ServiciosComponent,
     
+    CarroComponent,
+          ServicioCargaComponent,
+          ServiciosAgregarComponent,
+          ServiciosCatComponent,
+          ServiciosVendidosComponent,
+     
 
 
   ],

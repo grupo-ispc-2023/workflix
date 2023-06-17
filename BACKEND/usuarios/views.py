@@ -11,6 +11,7 @@ from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, Bl
 from rest_framework.permissions import AllowAny
 from .serializer import UsuarioSerializer, RegistroSerializer
 from .models import Usuario
+from productos.models import Carrito
 
 from .common import crear_respuesta
 from rest_framework import routers, viewsets
@@ -37,7 +38,14 @@ class SignupView(generics.CreateAPIView):
 class LoginView(APIView):
     permission_classes = [AllowAny]
 
-    
+    def _get_carrito(self, cliente):
+        try:
+            return Carrito.objects.get(cliente=cliente, comprado=False)
+        except Carrito.DoesNotExist:
+            fecha = timezone.now()
+            carrito = Carrito.objects.create(cliente=cliente, fecha=fecha, comprado=False)
+            carrito.save()
+            return carrito
 
     def post(self, request: Request):
         username = request.data.get('usuario')

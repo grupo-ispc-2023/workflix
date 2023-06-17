@@ -122,10 +122,19 @@
           <button class="btn" type="submit" [disabled]="!registrarForm.valid">Registrarse</button><br>
          
         </form>
+        
         <ng-container *ngIf="resultado.mensaje != ''">
-          <p>{{resultado.mensaje}}</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                         <p class="text-center">{{resultado.mensaje}}</p>
+
+                    </div>
+                </div>
+            </div>
           <ng-container *ngIf="resultado.status == 201">
-           
+            
           </ng-container>
         </ng-container>
   </section>

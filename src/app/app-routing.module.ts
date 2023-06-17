@@ -16,6 +16,15 @@ import { PagosComponent } from './layouts/pages/pagos/pagos.component';
 import { FavoritosComponent } from './layouts/pages/favoritos/favoritos.component';
 import { CarritoComponent } from './shared/carrito/carrito.component';
 import { UsuarioComponent } from './dashboard/usuario/usuario.component';
+import { CatServiciosComponent } from './layouts/pages/cat-servicios/cat-servicios.component';
+import { ConfigAdminComponentimplements } from './layouts/pages/config-admin/config-admin.component';
+import { ServiciosComponent } from './layouts/pages/servicios/servicios.component';
+import { ServiciosDisponiblesComponent } from './layouts/pages/servicios-disponibles/servicios-disponibles.component';
+import { ServicioCargaComponent } from './layouts/pages/servicio-carga/servicio-carga.component';
+import { CarroComponent } from './layouts/pages/carro/carro.component';
+import { ServiciosAgregarComponent } from './layouts/pages/servicios-agregar/servicios-agregar.component';
+import { ServiciosCatComponent } from './layouts/pages/servicios-cat/servicios-cat.component';
+import { ServiciosVendidosComponent } from './layouts/pages/servicios-vendidos/servicios-vendidos.component';
 
 
 
@@ -25,13 +34,21 @@ const routes: Routes = [
   { path: 'notificaciones', component: NotificacionesComponent},
   { path: 'preguntasFrecuentes', component: PreguntasFrecuentesComponent},
   { path: 'pagos', component: PagosComponent},
+  { path: 'catServicios', component: CatServiciosComponent},
   { path: 'favoritos', component: FavoritosComponent},
+  { path: 'config-Admin', component: ConfigAdminComponentimplements},
   { path: 'contacto', component: ContactoComponent },
+  { path: 'servicios', component: ServiciosComponent },
+  { path: 'serviciosAgregar', component: ServiciosAgregarComponent },
+  { path: 'serviciosDisponibles', component: ServiciosDisponiblesComponent },
   { path: 'dashboard', component: AdminComponent },
   { path: 'dashboardUsuario', component: UsuarioComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'serviciosVendidos', component: ServiciosVendidosComponent },
+  { path: 'catalogo', component: ServiciosCatComponent },
   { path: 'perfilUsuario', component: PerfilUsuarioComponent },
- 
+  { path: 'carro', component: CarroComponent },
+  { path: 'servicioCarga', component: ServicioCargaComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'profesionales', component: ProfesionalesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta por defecto

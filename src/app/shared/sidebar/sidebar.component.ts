@@ -70,6 +70,8 @@ export class SidebarComponent {
 //      this.isComponentVisible = true;
 //    }
 //  }
+esUsuarioAdministrador = () => this.usuario?.tipo == TipoUsuario.Administrador;
 
+esUsuarioCliente = () => this.usuario?.tipo == TipoUsuario.Cliente;
 
 }

@@ -1,0 +1,18 @@
+
+
+<main id="main" class="main">
+    <ng-container *ngIf="producto">
+        <div class="card p-2">
+            <img src="{{imagen}}" class="card-img-top" alt="">
+            <h4 class="card-title">{{ producto.nombre }}</h4>
+            <p class="card-text">{{ producto.descripcion }}</p>
+            <p class="card-text">Precio: $ {{ producto.precio }}</p>
+            <p class="card-text">Cantidad: {{ seleccion? seleccion.cantidad : producto.cantidad }}</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!producto">
+        El producto no se renderizó
+    </ng-container>
+    
+
+</main>
