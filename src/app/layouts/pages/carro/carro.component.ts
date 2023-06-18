@@ -41,7 +41,7 @@ export class CarroComponent {
 
   // Agrego enrutamiento
   aggProductos() {
-    this.router.navigate(['/catalogo']);
+    this.router.navigate(['/servicios-cat']);
   }
 
   ngOnInit(): void {
@@ -74,21 +74,23 @@ export class CarroComponent {
   }
 
   // Elimino todos los productos una vez pagados y restauro el valor total
-  pagar(){
+  pagar(): void {
+    this.carritoService.checkout(this.envioElegido).subscribe(v => {
+      // Manejar la respuesta de la venta
+    });
     alert('Has pagado correctamente');
-    this.carritoService.checkout(this.envioElegido)
-      .subscribe(v => {
-        this.carritoService.refrescarCarrito()
-          .subscribe(c => {
-            if (c > 0) this.authService.cambiarCarrito(c);
+  this.carritoService.refrescarCarrito().subscribe(c => {
+    if (c > 0) this.authService.cambiarCarrito(c);
 
-            this.total = 0;
-            this.totalCarrito = 0; // Cree esta variable solamente para poder hacer uso del totalCarrito
-            this.carrito = [];
-            const carritoReducido = this.getCarritoReducido();
-          });
-      })
-  }
+    this.total = 0;
+    this.totalCarrito = 0;
+    this.carrito = [];
+    const carritoReducido = this.getCarritoReducido();
+
+   
+  });
+}
+
 
   // Agrego un producto al carrito
   agregarAlCarrito(producto: Producto) {

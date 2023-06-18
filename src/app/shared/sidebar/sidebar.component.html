@@ -21,33 +21,43 @@
         <div class="col-xl-12">
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-              <img src="assets/img/profile-img.png" width="70" height="70" alt="Profile" class="rounded-circle">
-              <h2>Martina</h2>
-              <h3>Pintora</h3>
+              <img src="assets/img/avatar.png" width="70" height="70" alt="Profile" class="rounded-circle">
+              <ng-container *ngIf="usuario"> 
+                <br>
+                
+                <h3>{{ usuario.nombre }} {{ usuario.apellido }}</h3>
+                
+              </ng-container>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <ng-container *ngIf="!esUsuarioAdministrador()">
+      <li class="nav-heading">Dashboard</li>
+      <li class="nav-item"> <a class="nav-link " routerLink="/dashboardUsuario" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>DasUsuario</span> </a></li>
+      <li class="nav-item"> <a class="nav-link " routerLink="/carro" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>carro</span> </a></li>
+      <li class="nav-heading">Ofrecer servicio</li>
+      <li class="nav-item"> <a class="nav-link " routerLink="/serviciosAgregar" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Ofrecer un servicio</span> </a></li>
+    </ng-container>
+
       <ng-container *ngIf="esUsuarioAdministrador()">
         <li class="nav-heading">Usuario Administrador</li>
         <li class="nav-item"> <a class="nav-link " routerLink="/dashboard" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Dashboard</span> </a></li>
         <li class="nav-item"> <a class="nav-link " routerLink="/config-Admin" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Configuración</span> </a></li>
-       
+        <li class="nav-item"> <a class="nav-link " routerLink="/carro" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>carro</span> </a></li>
       </ng-container>
-      <li class="nav-item"> <a class="nav-link " routerLink="/carro" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>carro</span> </a></li>
+      <!--
       <li class="nav-item"> <a class="nav-link " routerLink="/serviciosVendidos" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Ventas</span> </a></li>
-      <li class="nav-item"> <a class="nav-link " routerLink="/serviciosAgregar" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>agregar</span> </a></li>
-      <li class="nav-item"> <a class="nav-link " routerLink="/catalogo" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Catalogo</span> </a></li>
-      <li class="nav-item"> <a class="nav-link " routerLink="/servicios" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Servicios</span> </a></li>
-      <li class="nav-item"> <a class="nav-link " routerLink="/servicioCarga" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Servicio carga</span> </a></li>
-        <li class="nav-item"> <a class="nav-link " routerLink="/servicosDisponibles" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Servicios disponibles</span> </a></li>
-      <ng-container *ngIf="!esUsuarioAdministrador()">
-        <li class="nav-heading">Dashboard</li>
-        <li class="nav-item"> <a class="nav-link " routerLink="/dashboardUsuario" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>DasUsuario</span> </a></li>
-      </ng-container>
+      -->
+      
+      
+      
+        
+      
     
     </ng-container>
+    <br>
     <li class="nav-heading">Opciones</li>
     <li class="nav-item"> <a class="nav-link collapsed" routerLink="/notificaciones" (click)="onClickEnlace()"> <i class="bi bi-envelope"></i> <span>Notificaciones</span> </a></li>
     <ng-container *ngIf="usuario">

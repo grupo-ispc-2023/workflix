@@ -1,31 +1,19 @@
+
+
 <div class="col-md-12 mt-auto pb-4">
-  <div class="mt-5 p-2">
+  <div class="mt-5 p-4">
       <div class="text-center">
-          <h1 class="text-black">ARTÍCULOS EXISTENTES</h1>
+          <h1 class="text-black">Publicar servicio</h1>
       </div>
   </div>
 </div>
 
+
+
 <div class="container">
-<div class="row">
-  <div class="col">
-    <ng-container *ngIf="productos.length > 0">
-      <div class="row table-header-color">
-        <div class="col-3">Titulo</div>
-        <div class="col-2 col-lg-1">Precio</div>
-        <div class="col-2 col-lg-1">Cantidad</div>
-        <div class="col">Descripcion</div>
-      </div>
-      <div class="row" *ngFor="let producto of productos">
-        
-        <app-servicio-carga (refrescar)="refrescar()" [producto]="producto" [tipoProductos]="tipoProductos"></app-servicio-carga>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="productos.length == 0">
-      No hay artículos para mostrar.
-    </ng-container>
-  </div>
-</div>
+  
+   
+  
 <div class="row">
   <h3>Agregar</h3>
   <div class="col-6">
@@ -44,7 +32,7 @@
         <input id="descripcion" name="descripcion" type="text" formControlName="descripcion" maxlength="50" required>
         <div *ngIf="descripcion?.invalid && (descripcion?.dirty || descripcion?.touched)" class="text-danger">
           <div *ngIf="descripcion?.errors?.['required']">
-              Se requiere una descripción del producto.
+              Se requiere una descripción del servicio.
           </div>
         </div>
       </div>
@@ -56,19 +44,19 @@
         </select>
         <div *ngIf="tipo?.invalid && (tipo?.dirty || tipo?.touched)" class="text-danger">
           <div *ngIf="tipo?.errors?.['required']">
-            Se requiere seleccionar un tipo de producto.
+            Se requiere seleccionar un tipo de servicio.
           </div>
           <div *ngIf="tipo?.errors?.['min']">
-            Ingrese un tipo de producto.
+            Ingrese un tipo de servicio.
         </div>
         </div>
       </div>
       <div>
-        <label for="precio">Precio: </label>
+        <label for="precio">Costo del servicio: </label>
         <input id="precio" name="precio" type="number" formControlName="precio" required>
         <div *ngIf="precio?.invalid && (precio?.dirty || precio?.touched)" class="text-danger">
           <div *ngIf="precio?.errors?.['required']">
-            Se requiere ingresar un precio para el producto.
+            Se requiere ingresar un precio para el servicio.
           </div>
           <div *ngIf="precio?.errors?.['min']">
             El precio no puede ser inferior a cero.
@@ -76,11 +64,12 @@
         </div>
       </div>
       <div>
-        <label for="costo">Costo: </label>
-        <input id="costo" name="costo" type="number" formControlName="costo" required>
+        
+        <input id="costo" name="costo" type="number" formControlName="costo" required hidden>
+
         <div *ngIf="costo?.invalid && (costo?.dirty || costo?.touched)" class="text-danger">
           <div *ngIf="costo?.errors?.['required']">
-            Se requiere ingresar el costo del producto.
+            Se requiere ingresar el costo del Servicio.
           </div>
           <div *ngIf="costo?.errors?.['min']">
             El costo no puede ser inferior a cero.
@@ -88,8 +77,10 @@
         </div>
       </div>
       <div>
-        <label for="cantidad">Cantidad: </label>
-        <input id="cantidad" name="cantidad" type="number" formControlName="cantidad" required>
+        <label for="cantidad" hidden>Cantidad: </label>
+        <input id="cantidad" name="cantidad" type="number" formControlName="cantidad" required hidden>
+        
+
         <div *ngIf="cantidad?.invalid && (cantidad?.dirty || cantidad?.touched)" class="text-danger">
           <div *ngIf="cantidad?.errors?.['required']">
             Se requiere ingresar la cantidad del producto.
@@ -101,10 +92,11 @@
       </div>
       <div>
         <label for="imagen">Imagen: </label>
-        <input id="imagen" name="imagen" type="file" accept="image/*" (change)="onFileChange($event)"><br>
+        <input id="imagen" name="imagen" type="file" accept="image/*" (change)="onFileChange($event)" class="btn btn-outline-primary"><br>
       </div>
       <div class="btn-right">
-        <button type="submit" class="col btn btn-primary" [disabled]="!crearProductoForm.valid" (click)="crear(crearProductoForm.value)">Crear artículo</button>
+        <button type="submit" class="col btn btn-primary" [disabled]="!crearProductoForm.valid" (click)="crear(crearProductoForm.value)">crear servicio</button>
+        <br><br><br>
         <div *ngIf="mostrarMensajeExitoso" class="alert alert-success">
           Articulo creado con éxito.
         </div>
@@ -118,4 +110,25 @@
     <app-campo-r [resultado]="resultado"></app-campo-r>
   </div>
 </ng-container>
+
+<h2>Articulos publicados</h2>
+<div class="row">
+  <div class="col-9 col-lg-9"> <!-- Ajustar las clases para ocupar el 75% de la pantalla -->
+    <ng-container *ngIf="productos.length > 0">
+      <div class="row table-header-color">
+        <div class="col-3">Titulo</div>
+        <div class="col-3 col-lg-1">Precio</div>
+        <div class="col-3 col-lg-1">Cantidad</div>
+        <div class="col-3">Descripcion</div>
+      </div>
+      <div class="row" *ngFor="let producto of productos">
+        <app-servicio-carga (refrescar)="refrescar()" [producto]="producto" [tipoProductos]="tipoProductos"></app-servicio-carga>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="productos.length == 0">
+      No hay artículos para mostrar.
+    </ng-container>
+  </div>
 </div>
+</div>
+

@@ -19,7 +19,7 @@ export class VentasService {
 
   anotarVenta(envio: Envio): Observable<Venta> {
     let carrito = this.authService.obtenerCarritoActual();
-    return this.http.post<Venta>(this.ventasUrl, {'carrito': carrito, 'envio': envio.id});
+    return this.http.post<Venta>(this.ventasUrl, {'carrito': carrito, 'envio': 1});
   }
 
   obtenerVentas(): Observable<Venta[]> {

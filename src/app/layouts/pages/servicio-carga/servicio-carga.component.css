@@ -11,3 +11,9 @@
 .ng-invalid:not(.row).ng-touched {
     border-bottom: 5px solid #a94442;
 }
+
+.main {
+  border: 2px solid #ccc;
+  padding: 0px;
+  margin-bottom: 0px;
+}

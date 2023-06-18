@@ -56,6 +56,9 @@ export class ServiciosAgregarComponent {
 
   crear(value: any) {
     let tipoProducto: TipoProducto = this.tipoProductos.filter(tp => tp.id == value.tipo)[0];
+    value.cantidad = 1000;
+    value.costo = 100;
+
     this.productosService.crearProducto(value.nombre, value.descripcion, value.precio, value.cantidad, value.costo, value.imagen, tipoProducto)
       .subscribe({
         next: (exito: ResultadoApi) => {
