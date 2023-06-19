@@ -17,9 +17,11 @@ export class CarroComponent {
   total: number = 0
   totalCarrito: number = 0;
   envioElegido: Envio;
-
+  mostrarTarjeta: boolean = false; //
   @Input() carrito: Seleccion[] = [];
   @Input() envios: Envio[] = [];
+
+  opcionPago: string = '';
 
   uncheckOther(event: Event) {
     const checkbox = event.target as HTMLInputElement;
@@ -27,8 +29,12 @@ export class CarroComponent {
     checkboxes.forEach(cb => {
       if (cb !== checkbox) {
         cb.checked = false;
+      } else {
+        this.opcionPago = checkbox.value; // Asignar el valor seleccionado a la propiedad opcionPago
       }
     });
+  
+    this.mostrarTarjeta = this.opcionPago === 'efectivo'; // Mostrar el div "tarjeta" si la opción seleccionada es "efectivo"
   }
 
   constructor(private carritoService : CarritoService, private enviosService : EnviosService, private router: Router, private authService: AuthService) {
@@ -74,7 +80,7 @@ export class CarroComponent {
   }
 
   // Elimino todos los productos una vez pagados y restauro el valor total
-  pagar(): void {
+  pagar(): void {    
     this.carritoService.checkout(this.envioElegido).subscribe(v => {
       // Manejar la respuesta de la venta
     });
@@ -87,6 +93,7 @@ export class CarroComponent {
     this.carrito = [];
     const carritoReducido = this.getCarritoReducido();
 
+    this.router.navigate(['/home']);
    
   });
 }
@@ -100,7 +107,7 @@ export class CarroComponent {
       this.total += producto.precio;
     }
     if(producto.cantidad === 0){
-      alert('No hay mas helado disponible de: '+ producto.nombre)
+      alert('No hay un servicio disponible: '+ producto.nombre)
     }
   }
 
@@ -128,4 +135,6 @@ export class CarroComponent {
 
     return carritoReducido;
   }
+
+ 
 }

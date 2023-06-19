@@ -64,9 +64,7 @@ MIDDLEWARE = [
     
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost',
-]
+
 
 ROOT_URLCONF = 'workflix_admin_venv.urls'
 
@@ -100,14 +98,14 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
-        'sql_mode': 'traditional',
+        
     }
 }
 
 if platform.system() == 'Darwin':  # Verifica si el sistema operativo es macOS
     DATABASES['default']['unix_socket'] = '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock'
 
-ALLOWED_HOSTS = []
+
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
 # Password validation
@@ -151,11 +149,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-}
+
 
 ROOT_URLCONF = 'workflix_admin_venv.urls'
 
@@ -192,7 +186,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=25),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1)
 }
 

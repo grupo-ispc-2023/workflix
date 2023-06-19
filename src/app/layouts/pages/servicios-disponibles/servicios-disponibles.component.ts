@@ -51,10 +51,10 @@ export class ServiciosDisponiblesComponent implements OnInit{
     this.carritoService.agregarProductoAlCarrito(producto)
       .subscribe(p => {
         if (p) {
-          alert('Agregaste al carrito un helado de: ' + producto.nombre)
+          alert('El servicio fue agregado al carrito: ' + producto.nombre)
         }
         else {
-          alert('Error agregando artículo al carrito');
+          alert('Error agregando servicio al carrito');
         }
       });
   }

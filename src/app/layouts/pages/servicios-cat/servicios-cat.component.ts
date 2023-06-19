@@ -51,10 +51,10 @@ export class ServiciosCatComponent implements OnInit{
     this.carritoService.agregarProductoAlCarrito(producto)
       .subscribe(p => {
         if (p) {
-          alert('Agregaste al carrito un helado de: ' + producto.nombre)
+          alert('Agregaste al carrito el servicio seleccionado: ' + producto.nombre)
         }
         else {
-          alert('Error agregando artículo al carrito');
+          alert('Error agregando el servicio al carrito');
         }
       });
   }

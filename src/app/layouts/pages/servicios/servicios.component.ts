@@ -10,6 +10,7 @@ import { Seleccion } from 'src/app/modelos/modelo.seleccion';
   providers: [ ImagenesService ]
 })
 export class ServiciosComponent {
+  cantidadEstrellas: number;
   @Input() producto?: Producto;
   @Input() imagen: string;
 
@@ -22,10 +23,11 @@ export class ServiciosComponent {
     return this._seleccion;
   }
 
-  constructor(private imagenesService: ImagenesService) {
+  constructor(private imagenesService: ImagenesService, ) {
     this.producto = undefined;
     this.seleccion = undefined;
     this.imagen = "";
+    this.cantidadEstrellas = Math.floor(Math.random() * 5) + 1;
   }
 
   ngOnInit(): void {

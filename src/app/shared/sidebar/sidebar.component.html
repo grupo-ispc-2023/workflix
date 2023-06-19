@@ -33,19 +33,21 @@
         </div>
       </div>
     </section>
+    
     <ng-container *ngIf="!esUsuarioAdministrador()">
       <li class="nav-heading">Dashboard</li>
       <li class="nav-item"> <a class="nav-link " routerLink="/dashboardUsuario" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>DasUsuario</span> </a></li>
       <li class="nav-item"> <a class="nav-link " routerLink="/carro" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>carro</span> </a></li>
-      <li class="nav-heading">Ofrecer servicio</li>
       <li class="nav-item"> <a class="nav-link " routerLink="/serviciosAgregar" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Ofrecer un servicio</span> </a></li>
+      
     </ng-container>
 
       <ng-container *ngIf="esUsuarioAdministrador()">
         <li class="nav-heading">Usuario Administrador</li>
         <li class="nav-item"> <a class="nav-link " routerLink="/dashboard" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Dashboard</span> </a></li>
         <li class="nav-item"> <a class="nav-link " routerLink="/config-Admin" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Configuración</span> </a></li>
-        <li class="nav-item"> <a class="nav-link " routerLink="/carro" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>carro</span> </a></li>
+       
+        
       </ng-container>
       <!--
       <li class="nav-item"> <a class="nav-link " routerLink="/serviciosVendidos" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Ventas</span> </a></li>
