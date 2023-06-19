@@ -6,9 +6,6 @@
 
 # Team Workflix 2023
 
-- ACUÑA, Natalin
-- CALIGIURI, Andrea
-- CEBALLOS, Elías Rey
 - DELGADO Marcelo
 - DÍAZ, Yandira
 - GIMÉNEZ, Diego Fabián
