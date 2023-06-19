@@ -1,13 +1,46 @@
 
 
-<main id="main" class="main">
+<div class="row">
     <ng-container *ngIf="producto">
-        <div class="card p-2">
-            <img src="{{imagen}}" class="card-img-top" alt="">
-            <h4 class="card-title">{{ producto.nombre }}</h4>
-            <p class="card-text">{{ producto.descripcion }}</p>
-            <p class="card-text">Precio: $ {{ producto.precio }}</p>
-            <p class="card-text">Cantidad: {{ seleccion? seleccion.cantidad : producto.cantidad }}</p>
+        <div class="item-box plo col-12 text-center mb-5">
+            <div class="card shadow bg-light" style="border-radius: 20px 0px 40px 40px; border:none;">
+               
+                    <div class="card-header rounded-pill cabecera-tarjeta">
+                        {{ producto.tipo }}<i class="fa-solid fa-wrench"></i>
+                    </div>
+               
+                <div class="card-body">
+                    <h1 class="card-title"></h1>
+                    <div class="row mt-2">
+                        <div class="col-4 col-md-4 ms-2">
+                            <img src="{{imagen}}" class="rounded-circle mt-2" width="90" height="90" alt="">
+                        </div>
+                        <div class="col-7 col-md-7 align-self-center text-start">
+                            <h4 class="card-title">{{ producto.nombre }}</h4>
+                            <div class="col-7 col-md-7 align-self-center text-center">
+                                <ul class="mb-0 list-unstyled d-flex flex-row h5" style="color: #1d1f1d;">
+                                <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                                <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                                <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                                <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                                <li><i class="fa-regular fa-star fa-xs mx-1"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-3 m-2">
+                        <div class="p-2 bg-white border my-3 mx-2 rounded">    
+                            <p class="card-text">
+                                {{ producto.descripcion }}
+                            </p>
+                        </div>
+                    </div>
+                        <div class="d-grid gap-3 m2">            
+                            <p class="card-text">Precio: $ {{ producto.precio }}</p>
+                            <p class="card-text">Cantidad: {{ seleccion? seleccion.cantidad : producto.cantidad }}</p>
+                        </div>  
+                </div>      
+            </div> 
         </div>
     </ng-container>
     <ng-container *ngIf="!producto">
@@ -15,4 +48,4 @@
     </ng-container>
     
 
-</main>
+</div>
