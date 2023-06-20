@@ -9,20 +9,20 @@
                 <div class="carousel-caption d-none d-md-block">
                   <div class="container-fluid" id="botones-header">
                     <ng-container *ngIf="esUsuarioAdministrador()">
-                      
+
                       <h1>Ingreso con usuario administrador</h1>
                     </ng-container>
                     <ng-container *ngIf="esUsuarioCliente()">
 
                       <h1>Ingreso con usuario cliente</h1>
-                     
+
                     </ng-container>
                     <ng-container *ngIf="!esUsuarioCliente() && !esUsuarioAdministrador()">
-                      <h1>Iniciar secion para acceder a los servicios ofrecidos</h1>
+                      <h1>Inicia sesión para acceder a los servicios ofrecidos</h1>
                     </ng-container>
-                 
+
                   </div>
-                  
+
                 </div>
               </div>
             </div>

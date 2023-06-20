@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
     'workflix_app_venv.apps.WorkflixAppVenvConfig',
-    'rest_framework.authtoken',       
+    'rest_framework.authtoken',
     'django.middleware.csrf',
     'usuarios',
     'productos'
@@ -59,9 +59,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    
-    
-    
+
+
+
 ]
 
 
@@ -98,7 +98,7 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
-        
+
     }
 }
 

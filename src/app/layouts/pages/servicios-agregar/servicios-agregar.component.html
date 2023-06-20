@@ -11,9 +11,9 @@
 
 
 <div class="container">
-  
-   
-  
+
+
+
 <div class="row">
   <h3>Agregar</h3>
   <div class="col-6">
@@ -64,7 +64,7 @@
         </div>
       </div>
       <div>
-        
+
         <input id="costo" name="costo" type="number" formControlName="costo" required hidden>
 
         <div *ngIf="costo?.invalid && (costo?.dirty || costo?.touched)" class="text-danger">
@@ -79,7 +79,7 @@
       <div>
         <label for="cantidad" hidden>Cantidad: </label>
         <input id="cantidad" name="cantidad" type="number" formControlName="cantidad" required hidden>
-        
+
 
         <div *ngIf="cantidad?.invalid && (cantidad?.dirty || cantidad?.touched)" class="text-danger">
           <div *ngIf="cantidad?.errors?.['required']">
@@ -95,10 +95,10 @@
         <input id="imagen" name="imagen" type="file" accept="image/*" (change)="onFileChange($event)" class="btn btn-outline-primary"><br>
       </div>
       <div class="btn-right">
-        <button type="submit" class="col btn btn-primary" [disabled]="!crearProductoForm.valid" (click)="crear(crearProductoForm.value)">crear servicio</button>
+        <button type="submit" class="col btn btn-success" [disabled]="!crearProductoForm.valid" (click)="crear(crearProductoForm.value)">Crear servicio</button>
         <br><br><br>
         <div *ngIf="mostrarMensajeExitoso" class="alert alert-success">
-          Articulo creado con éxito.
+          Artículo creado con éxito.
         </div>
       </div>
     </form>
@@ -106,12 +106,12 @@
 </div>
 <ng-container *ngIf="resultado">
   <div class="row">
-    
+
     <app-campo-r [resultado]="resultado"></app-campo-r>
   </div>
 </ng-container>
 
-<h2>Articulos publicados</h2>
+<h2>Artículos publicados</h2>
 <div class="row">
   <div class="col-9 col-lg-9"> <!-- Ajustar las clases para ocupar el 75% de la pantalla -->
     <ng-container *ngIf="productos.length > 0">
