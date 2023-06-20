@@ -8,8 +8,11 @@
           <div>
             
             <app-servicios [producto]="producto"></app-servicios>
+
+
+            
             <ng-container *ngIf="conUsuario">
-              <button class="btn btn-primary" (click)="agregarAlCarrito(producto)" id="boton_card">
+              <button class="btn btn-primary button-up" (click)="agregarAlCarrito(producto)" id="boton_card">
                 <i class="bi bi-cart-plus" id="boton_card"></i> Adquirir servicio
               </button>
             </ng-container>

@@ -32,6 +32,13 @@
   }
   
   
+  .button-up {
+    position: relative;
+    top: -60px;
+    left: 30px;
+    transition: top 0.3s ease-in-out;
+  }
+  
   
   
   
