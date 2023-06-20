@@ -1,6 +1,7 @@
+
 #opcionDiv{
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
 }
 #añadir{
     cursor: pointer;
@@ -9,15 +10,15 @@
 }
 
 .border-styled {
-    border-top: 2px solid blue; 
-    padding: 2%; 
+    border-top: 2px solid blue;
+    padding: 2%;
 }
 
 .animacion {
-  animation-duration: 2s; 
+  animation-duration: 2s;
   animation-delay:  0.9s;
 }
-  
+
 button {
   color: aliceblue;
 }
@@ -28,12 +29,12 @@ button {
 }
 
 .div-derecho2 {
-  width: 75%; 
- 
+  width: 75%;
+
 }
 
 #div {
-  width: 75%; 
+  width: 75%;
 }
 
 :host {
@@ -177,7 +178,7 @@ color: #ffffff !important;
   box-sizing: border-box;
   border: 2px solid lightgrey;
   cursor:pointer;
-  margin: 8px 25px 8px 0px; 
+  margin: 8px 25px 8px 0px;
 }
 
 .radio:hover {
@@ -198,3 +199,4 @@ color: #ffffff !important;
   display: block;
   margin-top: 40px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
 }
+
